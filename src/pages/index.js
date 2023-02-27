@@ -11,11 +11,11 @@ export default function Home() {
       </Head>
       <main>
         <div className="h-screen flex justify-center items-center">
-          <div className="flex text-4xl">
+          <div className="flex text-xl sm:text-2xl md:text-4xl">
             <div className="flex flex-col-reverse md:mr-2">
               <h1>welcome to my</h1>
             </div>
-            <div className="flex flex-col mx-1 md:mx-2 px-1 text-center bg-black text-white">
+            <div className="flex flex-col mx-2 px-1 text-center bg-black text-white">
               <div>hello</div>
               <div>world</div>
             </div>
