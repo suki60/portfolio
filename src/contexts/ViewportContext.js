@@ -29,16 +29,7 @@ export const createBreakpointsHelpers = (selectedViewport, keys = ['xs', 'sm', '
     return keys.slice(0, breakpointIndex + 1).includes(selectedViewport)
   }
 
-  const between = (from, to) => {
-    const fromIndex = keys.findIndex(key => key === from)
-    const toIndex = keys.findIndex(key => key === to)
-
-    const breakpointsList =
-      fromIndex > toIndex ? keys.slice(toIndex, fromIndex + 1) : keys.slice(fromIndex, toIndex + 1)
-
-    return breakpointsList.includes(selectedViewport)
-  }
-  return { is, down, up, between }
+  return { is, down, up }
 }
 
 const ViewportContext = createContext()
