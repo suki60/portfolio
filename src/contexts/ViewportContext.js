@@ -1,6 +1,6 @@
-import useMediaQuery from "@/hooks/useMediaQuery"
-import React, { createContext, useCallback, useContext } from "react"
-import { useTheme } from "./ThemeContext"
+import useMediaQuery from '@/hooks/useMediaQuery'
+import React, { createContext, useContext } from 'react'
+import { useTheme } from './ThemeContext'
 
 const getBreakpoints = (screens) => ({
   xs: screens.xs,
@@ -15,7 +15,7 @@ const getMinWidthMediaQuery = (width) =>
 
 export const createBreakpointsHelpers = (
   selectedViewport,
-  keys = ["xs", "sm", "md", "lg", "xl"]
+  keys = ['xs', 'sm', 'md', 'lg', 'xl']
 ) => {
   const is = (breakpoint) => selectedViewport === breakpoint
 

@@ -1,19 +1,19 @@
-import App from "next/app"
-import Layout from "@/components/Layout"
-import { ThemeProvider } from "@/contexts/ThemeContext"
-import { ViewportProvider } from "@/contexts/ViewportContext"
-import UAParser from "ua-parser-js"
-import "@/styles/globals.css"
+import App from 'next/app'
+import Layout from '@/components/Layout'
+import { ThemeProvider } from '@/contexts/ThemeContext'
+import { ViewportProvider } from '@/contexts/ViewportContext'
+import UAParser from 'ua-parser-js'
+import '@/styles/globals.css'
 
 const getSSRViewport = (userAgent) => {
   const ua = UAParser(userAgent)
   const deviceType = ua.device.type
 
-  if (deviceType === "mobile") return "xs"
+  if (deviceType === 'mobile') return 'xs'
 
-  if (deviceType === "tablet") return "sm"
+  if (deviceType === 'tablet') return 'sm'
 
-  return "lg"
+  return 'lg'
 }
 
 const MyApp = ({ Component, pageProps }) => (
@@ -28,7 +28,7 @@ const MyApp = ({ Component, pageProps }) => (
 
 MyApp.getInitialProps = async (appContext) => {
   const props = await App.getInitialProps(appContext)
-  const ssrViewport = getSSRViewport(appContext.ctx.req.headers["user-agent"])
+  const ssrViewport = getSSRViewport(appContext.ctx.req.headers['user-agent'])
   props.pageProps.ssrViewport = ssrViewport
 
   return { ...props }

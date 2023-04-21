@@ -1,6 +1,6 @@
-import { createContext, useContext } from "react"
-import resolveConfig from "tailwindcss/resolveConfig"
-import tailwindConfig from "tailwind.config"
+import { createContext, useContext } from 'react'
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from 'tailwind.config'
 
 const ThemeContext = createContext()
 
