@@ -26,9 +26,9 @@ const MyApp = ({ Component, pageProps }) => (
   </ThemeProvider>
 )
 
-MyApp.getInitialProps = async (ctx) => {
-  const props = await App.getInitialProps(ctx)
-  const ssrViewport = getSSRViewport(ctx.ctx.req.headers["user-agent"])
+MyApp.getInitialProps = async (appContext) => {
+  const props = await App.getInitialProps(appContext)
+  const ssrViewport = getSSRViewport(appContext.ctx.req.headers["user-agent"])
   props.pageProps.ssrViewport = ssrViewport
 
   return { ...props }
