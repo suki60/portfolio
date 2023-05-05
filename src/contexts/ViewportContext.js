@@ -9,6 +9,8 @@ const BREAKPOINTS = {
   xl: 1536,
 }
 
+const keys = Object.keys(BREAKPOINTS)
+
 const getMinWidthMediaQuery = (width) =>
   `(min-width: ${width}px)`
 
@@ -36,10 +38,8 @@ const ViewportContext = createContext()
 export const useViewport = () => useContext(ViewportContext)
 
 export const ViewportProvider = ({ children, ssrViewport }) => {
-  const keys = Object.keys(BREAKPOINTS).reverse()
-
   const selectedViewport =
-    keys.reduce((output, key) => {
+    [...keys].reverse().reduce((output, key) => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const matches = useMediaQuery(getMinWidthMediaQuery(BREAKPOINTS[key]))
 
