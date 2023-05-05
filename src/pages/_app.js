@@ -28,7 +28,13 @@ const MyApp = ({ Component, pageProps }) => (
 
 MyApp.getInitialProps = async (appContext) => {
   const props = await App.getInitialProps(appContext)
-  const ssrViewport = getSSRViewport(appContext.ctx.req.headers['user-agent'])
+
+  const userAgent =
+    typeof window !== 'undefined'
+      ? window.navigator.userAgent
+      : appContext.ctx.req.headers['user-agent']
+
+  const ssrViewport = getSSRViewport(userAgent)
   props.pageProps.ssrViewport = ssrViewport
 
   return { ...props }
