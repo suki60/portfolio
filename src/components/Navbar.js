@@ -4,16 +4,14 @@ import Link from 'next/link'
 import React from 'react'
 
 const Navbar = ({}) => {
-  const { is } = useViewport()
+  const { up } = useViewport()
 
   return (
     <div className='flex justify-between items-center px-6 h-[var(--navbar-height)]'>
       <Link href='/'>
         <Image alt='logo' src='/fa.svg' height={30} width={30} />
       </Link>
-      {is('xs') ? (
-        <div>burger</div>
-      ) : (
+      {up('md') ? (
         <div className='flex items-center gap-6'>
           <Link href='/'>home</Link>
           <Link href='contact'>contact</Link>
@@ -26,6 +24,8 @@ const Navbar = ({}) => {
             résumé
           </a>
         </div>
+      ) : (
+        <div>burger</div>
       )}
     </div>
   )
