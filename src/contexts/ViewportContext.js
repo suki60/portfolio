@@ -1,21 +1,20 @@
 import useMediaQuery from '@/hooks/useMediaQuery'
 import React, { createContext, useContext } from 'react'
-import { useTheme } from './ThemeContext'
 
-const getBreakpoints = (screens) => ({
-  xs: screens.xs,
-  sm: screens.sm,
-  md: screens.md,
-  lg: screens.lg,
-  xl: screens.xl,
-})
+const BREAKPOINTS = {
+  xs: 0,
+  sm: 600,
+  md: 900,
+  lg: 1200,
+  xl: 1536,
+}
 
 const getMinWidthMediaQuery = (width) =>
-  `(min-width: ${width})`
+  `(min-width: ${width}px)`
 
 export const createBreakpointsHelpers = (
   selectedViewport,
-  keys = ['xs', 'sm', 'md', 'lg', 'xl']
+  keys,
 ) => {
   const is = (breakpoint) => selectedViewport === breakpoint
 
@@ -37,14 +36,12 @@ const ViewportContext = createContext()
 export const useViewport = () => useContext(ViewportContext)
 
 export const ViewportProvider = ({ children, ssrViewport }) => {
-  const theme = useTheme()
-  const breakpoints = getBreakpoints(theme.container.screens)
-  const keys = Object.keys(breakpoints).reverse()
+  const keys = Object.keys(BREAKPOINTS).reverse()
 
   const selectedViewport =
     keys.reduce((output, key) => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
-      const matches = useMediaQuery(getMinWidthMediaQuery(breakpoints[key]))
+      const matches = useMediaQuery(getMinWidthMediaQuery(BREAKPOINTS[key]))
 
       return !output && matches ? key : output
     }, null) || ssrViewport
