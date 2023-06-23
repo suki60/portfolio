@@ -15,7 +15,7 @@ export default function Home() {
             <div className='flex flex-col-reverse md:mr-2'>
               <h1>welcome to my</h1>
             </div>
-            <div className='flex flex-col mx-2 px-1 text-center bg-black text-white'>
+            <div className='flex flex-col mx-2 px-1 text-center bg-violet-300 text-white'>
               <div>hello</div>
               <div>world</div>
             </div>
