@@ -13,7 +13,7 @@ const Navbar = ({}) => {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className='flex h-[var(--navbar-height)] items-center justify-between px-6'>
+    <div className='flex mx-auto max-w-[1536px] h-[var(--navbar-height)] items-center justify-between px-6'>
       <Link href='/'>
         <Image alt='logo' src='/fa.svg' height={30} width={30} />
       </Link>
