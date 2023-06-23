@@ -1,10 +1,12 @@
-import { useViewport } from '~/contexts/ViewportContext'
+import React, { useState } from 'react'
+
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
-import Button from './Button'
+
 import Burger from './Burger'
+import Button from './Button'
 import Menu from './Menu'
+import { useViewport } from '~/contexts/ViewportContext'
 
 const Navbar = ({}) => {
   const { up } = useViewport()

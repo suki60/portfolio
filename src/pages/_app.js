@@ -1,8 +1,9 @@
 import App from 'next/app'
+import UAParser from 'ua-parser-js'
+
 import Layout from '~/components/Layout'
 import { ThemeProvider } from '~/contexts/ThemeContext'
 import { ViewportProvider } from '~/contexts/ViewportContext'
-import UAParser from 'ua-parser-js'
 import '~/styles/globals.css'
 
 const getSSRViewport = (userAgent) => {

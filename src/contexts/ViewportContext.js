@@ -1,5 +1,6 @@
-import useMediaQuery from '~/hooks/useMediaQuery'
 import React, { createContext, useContext } from 'react'
+
+import useMediaQuery from '~/hooks/useMediaQuery'
 
 const BREAKPOINTS = {
   xs: 0,
