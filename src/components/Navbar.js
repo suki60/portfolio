@@ -2,6 +2,7 @@ import { useViewport } from '@/contexts/ViewportContext'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
+import Button from './Button'
 
 const Menu = ({ open }) => {
   return (
@@ -13,14 +14,7 @@ const Menu = ({ open }) => {
       <div className='mx-auto flex flex-col gap-3 text-center'>
         <Link href='/'>home</Link>
         <Link href='contact'>contact</Link>
-        <Link
-          className='rounded border border-black py-1 px-2 text-black hover:bg-black hover:text-white'
-          href='https://drive.google.com/file/d/1zBiam17FE5C2ZuUv4dCdp0Lo3Y6_UEvG/view?usp=sharing'
-          target='_blank'
-          role='button'
-        >
-          résumé
-        </Link>
+        <Button />
       </div>
     </nav>
   )
@@ -63,14 +57,7 @@ const Navbar = ({}) => {
         <div className='flex items-center gap-6'>
           <Link href='/'>home</Link>
           <Link href='contact'>contact</Link>
-          <Link
-            className='rounded border border-black py-1 px-2 text-black hover:bg-black hover:text-white'
-            href='https://drive.google.com/file/d/1zBiam17FE5C2ZuUv4dCdp0Lo3Y6_UEvG/view?usp=sharing'
-            target='_blank'
-            role='button'
-          >
-            résumé
-          </Link>
+          <Button />
         </div>
       ) : (
         <>
