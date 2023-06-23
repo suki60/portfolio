@@ -25,7 +25,7 @@ const Navbar = ({}) => {
         </div>
       ) : (
         <>
-          <Menu open={open} />
+          <Menu open={open} setOpen={setOpen} />
           <Burger open={open} setOpen={setOpen} />
         </>
       )}
