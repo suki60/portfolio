@@ -24,10 +24,17 @@ const Menu = ({ open, setOpen }) => {
         </Link>
         <Link
           className={currentPage === '/contact' ? 'pointer-events-none line-through' : ''}
-          href='contact'
+          href='/contact'
           onClick={handleOnClick}
         >
           contact
+        </Link>
+        <Link
+          className={currentPage === '/projects' ? 'pointer-events-none line-through' : ''}
+          href='/projects'
+          onClick={handleOnClick}
+        >
+          projects
         </Link>
         <Button onClick={handleOnClick} />
       </div>

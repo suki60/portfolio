@@ -28,6 +28,9 @@ const Navbar = () => {
           <Link className={currentPage === '/contact' ? 'pointer-events-none line-through' : ''} href='/contact'>
             contact
           </Link>
+          <Link className={currentPage === '/projects' ? 'pointer-events-none line-through' : ''} href='/projects'>
+            projects
+          </Link>
           <Button />
         </div>
       ) : (
