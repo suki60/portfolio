@@ -6,7 +6,7 @@ const projects = {
   portfolio: {
     name: 'portfolio',
     description: 'personal portfolio',
-    logo: '/fa.svg',
+    logo: '/logo.svg',
   },
 }
 

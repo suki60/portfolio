@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <div className='mx-auto flex h-[var(--navbar-height)] max-w-[1536px] items-center justify-between px-6'>
       <Link href='/'>
-        <Image alt='logo' src='/fa.svg' height={30} width={30} />
+        <Image alt='logo' src='/logo.svg' height={60} width={60} />
       </Link>
       {up('sm') ? (
         <div className='flex items-center gap-6'>
