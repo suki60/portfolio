@@ -4,7 +4,7 @@ import Navbar from './Navbar'
 
 const Layout = ({ children }) => {
   return (
-    <div>
+    <div className='max-w-screen-full overflow-hidden'>
       <Navbar />
       <main>{children}</main>
     </div>
