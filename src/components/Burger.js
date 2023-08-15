@@ -11,7 +11,7 @@ const Burger = ({ open, setOpen }) => (
     <div
       className={`h-1 w-full transform rounded-full bg-black transition-all duration-300 ${
         open ? 'opacity-0' : 'opacity-100'
-      } ${open ? 'translate-x-20' : 'translate-x-0'}`}
+      }`}
     />
     <div
       className={`h-1 w-full origin-center transform rounded-full bg-black transition-all duration-300 ${
