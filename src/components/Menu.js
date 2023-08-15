@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import Button from './Button'
@@ -15,27 +15,27 @@ const Menu = ({ open, setOpen }) => {
       } absolute top-0 left-0 z-50 mx-auto h-screen transition-transform duration-300`}
     >
       <div className='mx-auto flex flex-col gap-3 text-center'>
-        <a
+        <Link
           className={currentPage === '/' ? 'pointer-events-none line-through' : ''}
           href='/'
           onClick={handleOnClick}
         >
           home
-        </a>
-        <a
+        </Link>
+        <Link
           className={currentPage === '/contact' ? 'pointer-events-none line-through' : ''}
           href='/contact'
           onClick={handleOnClick}
         >
           contact
-        </a>
-        <a
+        </Link>
+        <Link
           className={currentPage === '/projects' ? 'pointer-events-none line-through' : ''}
           href='/projects'
           onClick={handleOnClick}
         >
           projects
-        </a>
+        </Link>
         <Button onClick={handleOnClick} />
       </div>
     </nav>
