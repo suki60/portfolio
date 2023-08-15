@@ -9,16 +9,16 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div className='h-screen -mt-[var(--navbar-height)] flex justify-center items-center'>
+      <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
         <div className='flex text-xl sm:text-2xl md:text-4xl'>
-          <div className='flex flex-col-reverse md:mr-2'>
+          <div className='flex flex-col-reverse md:mr-2 whitespace-nowrap'>
             <h1>welcome to my</h1>
           </div>
           <div className='flex flex-col mx-2 px-1 md:py-1 text-center bg-violet-300 text-white rounded'>
             <div>hello</div>
             <div>world</div>
           </div>
-          <div className='flex flex-col lg:ml-2'>
+          <div className='flex flex-col lg:ml-2 whitespace-nowrap'>
             <h1>i&#39;m francesc altes</h1>
           </div>
         </div>
