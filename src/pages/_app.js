@@ -19,25 +19,13 @@ const getSSRViewport = userAgent => {
 }
 
 const MyApp = ({ Component, pageProps }) => (
-  <>
-    {/* Google tag (gtag.js) */}
-    <Script async src='https://www.googletagmanager.com/gtag/js?id=G-2CZZ5HS9WC' />
-    <Script strategy='afterInteractive' id='gtag'>
-      {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-2CZZ5HS9WC');
-      `}
-    </Script>
-    <ThemeProvider>
-      <ViewportProvider ssrViewport={pageProps.ssrViewport}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ViewportProvider>
-    </ThemeProvider>
-  </>
+  <ThemeProvider>
+    <ViewportProvider ssrViewport={pageProps.ssrViewport}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ViewportProvider>
+  </ThemeProvider>
 )
 
 MyApp.getInitialProps = async appContext => {
