@@ -1,5 +1,4 @@
 import App from 'next/app'
-import Script from 'next/script'
 import UAParser from 'ua-parser-js'
 
 import Layout from '~/components/Layout'

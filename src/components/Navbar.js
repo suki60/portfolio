@@ -27,10 +27,7 @@ const Navbar = () => {
   const current = router.pathname
 
   return (
-    <header
-      className={`${inter.variable} ${mono.variable} border-b-2 border-black bg-white`}
-      style={{ fontFamily: 'var(--font-inter)' }}
-    >
+    <header className={`${inter.variable} ${mono.variable} bg-white`} style={{ fontFamily: 'var(--font-inter)' }}>
       <div className='mx-auto flex h-[var(--navbar-height)] max-w-[1536px] items-center justify-between px-6 sm:px-10'>
         <Link href='/' className='flex items-center'>
           <Image alt='logo' src='/logo.svg' height={48} width={48} />
