@@ -34,17 +34,17 @@ const Home = () => (
       {/* THE WORD GAME — violet box is the hinge:
           "hello" (top) -> hello i'm francesc altes
           "world" (bottom) -> welcome to my world */}
-      <div className='flex flex-col items-center gap-1.5 sm:flex-row sm:items-stretch sm:gap-[18px]'>
+      <div className='grid w-full grid-cols-1 justify-items-center gap-1.5 sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] sm:items-center sm:gap-x-[18px] sm:gap-y-0'>
         {/* left phrase — drops to meet "world" */}
-        <div className='flex flex-col justify-end'>
+        <div className='flex flex-col justify-center sm:justify-self-end'>
           <h1
-            className='m-0 whitespace-nowrap lowercase sm:pb-[7px]'
+            className='m-0 whitespace-nowrap lowercase sm:translate-y-[0.675em]'
             style={{
               fontFamily: 'var(--font-inter)',
               fontWeight: 900,
               lineHeight: 1,
               letterSpacing: '-0.04em',
-              fontSize: 'clamp(34px,6.2vw,58px)',
+              fontSize: 'clamp(34px,5vw,50px)',
             }}
           >
             welcome to my
@@ -53,16 +53,18 @@ const Home = () => (
 
         {/* the hinge */}
         <span
-          className='inline-flex flex-col bg-violet-300 lowercase'
+          className='inline-flex flex-col items-center justify-center bg-violet-300 lowercase'
           style={{
             fontFamily: 'var(--font-mono)',
             fontWeight: 700,
             lineHeight: 1,
-            fontSize: 'clamp(34px,6.2vw,58px)',
+            fontSize: 'clamp(34px,5vw,50px)',
             color: '#0a0a0a',
+            aspectRatio: '1 / 1',
+            gap: '0.35em',
             border: '2px solid #0a0a0a',
             boxShadow: '5px 5px 0 #0a0a0a',
-            padding: '5px 0.3em',
+            padding: '6px 16px',
           }}
         >
           <span>hello</span>
@@ -70,15 +72,15 @@ const Home = () => (
         </span>
 
         {/* right phrase — rises to meet "hello" */}
-        <div className='flex flex-col justify-start'>
+        <div className='flex flex-col justify-center sm:justify-self-start'>
           <h1
-            className='m-0 whitespace-nowrap lowercase sm:pt-[7px]'
+            className='m-0 whitespace-nowrap lowercase sm:-translate-y-[0.675em]'
             style={{
               fontFamily: 'var(--font-inter)',
               fontWeight: 900,
               lineHeight: 1,
               letterSpacing: '-0.04em',
-              fontSize: 'clamp(34px,6.2vw,58px)',
+              fontSize: 'clamp(34px,5vw,50px)',
             }}
           >
             i&rsquo;m francesc altes
