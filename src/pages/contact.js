@@ -62,28 +62,17 @@ const Contact = () => (
       <meta name='description' content='francesc altes — senior software engineer' />
     </Head>
 
-    <div className={`${inter.variable} ${mono.variable} container pb-14`}>
+    <div className={`${inter.variable} ${mono.variable} container pt-12 pb-14 text-center`}>
       {/* header */}
-      <div className='grid grid-cols-1 items-center gap-9 sm:grid-cols-[240px_1fr]'>
-        <div className='max-w-[240px] border-2 border-black bg-white p-2 shadow-[10px_10px_0_#0a0a0a]'>
-          <div className='relative w-full border-2 border-black pb-[100%]'>
-            <Image
-              alt='francesc altes'
-              src='/fa-square.jpg'
-              fill
-              sizes='240px'
-              className='object-cover'
-              style={{ filter: 'grayscale(1) contrast(1.05)' }}
-            />
-          </div>
-          <div
-            className='flex justify-between px-0.5 pb-0.5 pt-2'
-            style={{ fontFamily: 'var(--font-mono)', fontSize: 11 }}
-          >
-            <span>fig.01 — francesc altes</span>
-            <span className='opacity-[0.55]'>bcn</span>
-          </div>
-        </div>
+      <div className='flex flex-col items-center gap-[22px]'>
+        <Image
+          alt='francesc altes'
+          src='/fa-square.jpg'
+          width={128}
+          height={128}
+          className='rounded-full border-[3px] border-black object-cover shadow-[6px_6px_0_#c3b5fd]'
+          style={{ filter: 'saturate(1.02) contrast(1.02)' }}
+        />
         <div>
           <h1
             className='m-0 lowercase'
@@ -107,7 +96,7 @@ const Contact = () => (
       </div>
 
       {/* cards */}
-      <div className='mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3'>
+      <div className='mt-10 grid grid-cols-1 gap-6 text-left sm:grid-cols-3'>
         <Card label='past'>{NARRATIVE.past}</Card>
         <Card label='present' accent>
           {NARRATIVE.present}
@@ -136,7 +125,7 @@ const Contact = () => (
 
       {/* links */}
       <div
-        className='mt-7 flex flex-wrap gap-7 border-t-[3px] border-black pt-[18px]'
+        className='mt-7 flex flex-wrap justify-center gap-7 border-t-[3px] border-black pt-[18px]'
         style={{ fontFamily: 'var(--font-mono)', fontSize: 13 }}
       >
         {LINKS.map(l => (
