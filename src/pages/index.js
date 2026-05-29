@@ -1,25 +1,107 @@
+import { Inter, Space_Mono } from 'next/font/google'
 import Head from 'next/head'
+import Link from 'next/link'
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '700', '800', '900'],
+  variable: '--font-inter',
+})
+
+const mono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-mono',
+})
 
 const Home = () => (
   <>
     <Head>
-      <title>Home</title>
-      <meta name='description' content='Home page' />
+      <title>home</title>
+      <meta name='description' content="welcome to my world — i'm francesc altes" />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
       <link rel='icon' href='/favicon.ico' />
     </Head>
-    <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform'>
-      <div className='flex text-xl sm:text-2xl md:text-4xl'>
-        <div className='flex flex-col-reverse whitespace-nowrap md:mr-2'>
-          <h1>welcome to my</h1>
+
+    <div
+      className={`${inter.variable} ${mono.variable} flex min-h-[calc(100vh-var(--navbar-height))] flex-col items-center justify-center px-6 text-center`}
+    >
+      {/* mono location tag */}
+      <div className='mb-9 uppercase' style={{ fontFamily: 'var(--font-mono)', fontSize: 13, letterSpacing: '0.18em' }}>
+        [ barcelona · design + dev ]
+      </div>
+
+      {/* THE WORD GAME — violet box is the hinge:
+          "hello" (top) -> hello i'm francesc altes
+          "world" (bottom) -> welcome to my world */}
+      <div className='flex flex-col items-center gap-1.5 sm:flex-row sm:items-stretch sm:gap-[18px]'>
+        {/* left phrase — drops to meet "world" */}
+        <div className='flex flex-col justify-end'>
+          <h1
+            className='m-0 whitespace-nowrap lowercase sm:pb-[7px]'
+            style={{
+              fontFamily: 'var(--font-inter)',
+              fontWeight: 900,
+              lineHeight: 1,
+              letterSpacing: '-0.04em',
+              fontSize: 'clamp(34px,6.2vw,58px)',
+            }}
+          >
+            welcome to my
+          </h1>
         </div>
-        <div className='mx-2 flex flex-col rounded bg-violet-300 px-1 text-center text-white md:py-1'>
-          <div>hello</div>
-          <div>world</div>
+
+        {/* the hinge */}
+        <span
+          className='inline-flex flex-col bg-violet-300 lowercase'
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontWeight: 700,
+            lineHeight: 1,
+            fontSize: 'clamp(34px,6.2vw,58px)',
+            color: '#0a0a0a',
+            border: '2px solid #0a0a0a',
+            boxShadow: '5px 5px 0 #0a0a0a',
+            padding: '5px 0.3em',
+          }}
+        >
+          <span>hello</span>
+          <span>world</span>
+        </span>
+
+        {/* right phrase — rises to meet "hello" */}
+        <div className='flex flex-col justify-start'>
+          <h1
+            className='m-0 whitespace-nowrap lowercase sm:pt-[7px]'
+            style={{
+              fontFamily: 'var(--font-inter)',
+              fontWeight: 900,
+              lineHeight: 1,
+              letterSpacing: '-0.04em',
+              fontSize: 'clamp(34px,6.2vw,58px)',
+            }}
+          >
+            i&rsquo;m francesc altes
+          </h1>
         </div>
-        <div className='flex flex-col whitespace-nowrap lg:ml-2'>
-          <h1>i&#39;m francesc altes</h1>
-        </div>
+      </div>
+
+      {/* CTAs */}
+      <div className='mt-12 flex flex-wrap justify-center gap-4'>
+        <Link
+          href='/projects'
+          className='border-2 border-black bg-black px-5 py-2.5 font-bold text-white shadow-[4px_4px_0_#c3b5fd] transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_#c3b5fd] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none'
+          style={{ fontFamily: 'var(--font-inter)', fontSize: 16 }}
+        >
+          see projects →
+        </Link>
+        <Link
+          href='/contact'
+          className='border-2 border-black px-5 py-2.5 font-bold text-black transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_#0a0a0a] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none'
+          style={{ fontFamily: 'var(--font-inter)', fontSize: 16 }}
+        >
+          say hello
+        </Link>
       </div>
     </div>
   </>
