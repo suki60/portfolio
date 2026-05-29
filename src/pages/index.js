@@ -28,7 +28,7 @@ const Home = () => (
     >
       {/* mono location tag */}
       <div className='mb-9 uppercase' style={{ fontFamily: 'var(--font-mono)', fontSize: 13, letterSpacing: '0.18em' }}>
-        [ barcelona · design + dev ]
+        [ made in barcelona ]
       </div>
 
       {/* THE WORD GAME — violet box is the hinge:
