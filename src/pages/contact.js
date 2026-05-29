@@ -90,7 +90,7 @@ const Contact = () => (
             className='mt-3 uppercase'
             style={{ fontFamily: 'var(--font-mono)', fontSize: 14, letterSpacing: '0.06em' }}
           >
-            senior software engineer · barcelona
+            software engineer · barcelona
           </div>
         </div>
       </div>
