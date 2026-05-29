@@ -39,16 +39,12 @@ const Navbar = () => {
               current === p.href ? (
                 <span
                   key={p.href}
-                  className='border-2 border-black bg-black px-3 py-[3px] font-bold lowercase text-white'
+                  className='-mx-2.5 border-2 border-black bg-black px-3 py-[3px] font-bold lowercase text-white'
                 >
                   {p.label}
                 </span>
               ) : (
-                <Link
-                  key={p.href}
-                  href={p.href}
-                  className='px-1 py-[3px] lowercase text-black underline-offset-4 hover:underline'
-                >
+                <Link key={p.href} href={p.href} className='px-1 py-[3px] lowercase text-black underline-offset-4'>
                   {p.label}
                 </Link>
               )
