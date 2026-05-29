@@ -30,9 +30,6 @@ const Menu = ({ open, setOpen, current }) => {
                 onClick={close}
                 className={`flex items-baseline gap-3 ${active ? 'pointer-events-none' : ''}`}
               >
-                <span className='text-[13px]' style={{ fontFamily: 'var(--font-mono)' }}>
-                  0{i + 1}
-                </span>
                 <span
                   className={`lowercase ${active ? 'line-through opacity-50' : ''}`}
                   style={{
