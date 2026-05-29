@@ -44,7 +44,7 @@ const Home = () => (
               fontWeight: 900,
               lineHeight: 1,
               letterSpacing: '-0.04em',
-              fontSize: 'clamp(34px,5vw,50px)',
+              fontSize: 'clamp(34px,4.6vw,46px)',
             }}
           >
             welcome to my
@@ -58,13 +58,14 @@ const Home = () => (
             fontFamily: 'var(--font-mono)',
             fontWeight: 700,
             lineHeight: 1,
-            fontSize: 'clamp(34px,5vw,50px)',
+            fontSize: 'clamp(34px,4.6vw,46px)',
             color: '#0a0a0a',
-            aspectRatio: '1 / 1',
-            gap: '0.35em',
+            aspectRatio: '16 / 10',
+            width: '4.7em',
             border: '2px solid #0a0a0a',
             boxShadow: '5px 5px 0 #0a0a0a',
-            padding: '6px 16px',
+            padding: '0',
+            gap: '0.35em',
           }}
         >
           <span>hello</span>
@@ -80,7 +81,7 @@ const Home = () => (
               fontWeight: 900,
               lineHeight: 1,
               letterSpacing: '-0.04em',
-              fontSize: 'clamp(34px,5vw,50px)',
+              fontSize: 'clamp(34px,4.6vw,46px)',
             }}
           >
             i&rsquo;m francesc altes
