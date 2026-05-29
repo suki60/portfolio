@@ -1,42 +1,65 @@
+import React from 'react'
+
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 
-import Button from './Button'
+import { PAGES, RESUME_URL } from './Navbar'
 
-const Menu = ({ open, setOpen }) => {
-  const handleOnClick = () => setOpen(false)
-  const router = useRouter()
-  const currentPage = router.pathname
+// Brutalist slide-in panel: violet field, hard right border, big lowercase links
+// with mono index numbers, line-through on the current page, black résumé button.
+const Menu = ({ open, setOpen, current }) => {
+  const close = () => setOpen(false)
 
   return (
     <nav
-      className={`flex w-[55%] transform flex-col justify-center bg-violet-100 ${
+      className={`fixed left-0 top-0 z-40 h-screen w-[74%] max-w-[320px] transform border-r-[3px] border-black bg-violet-300 px-6 pb-8 pt-[calc(var(--navbar-height)+8px)] transition-transform duration-300 ${
         open ? 'translate-x-0' : '-translate-x-full'
-      } absolute top-0 left-0 z-50 mx-auto h-screen transition-transform duration-300`}
+      }`}
     >
-      <div className='mx-auto flex flex-col gap-3 text-center'>
-        <Link
-          className={currentPage === '/' ? 'pointer-events-none line-through' : ''}
-          href='/'
-          onClick={handleOnClick}
+      <div className='flex h-full flex-col'>
+        <span className='text-xs uppercase tracking-[0.14em]' style={{ fontFamily: 'var(--font-mono)' }}>
+          menu
+        </span>
+
+        <div className='mt-6 flex flex-col gap-3.5'>
+          {PAGES.map((p, i) => {
+            const active = current === p.href
+            return (
+              <Link
+                key={p.href}
+                href={p.href}
+                onClick={close}
+                className={`flex items-baseline gap-3 ${active ? 'pointer-events-none' : ''}`}
+              >
+                <span className='text-[13px]' style={{ fontFamily: 'var(--font-mono)' }}>
+                  0{i + 1}
+                </span>
+                <span
+                  className={`lowercase ${active ? 'line-through opacity-50' : ''}`}
+                  style={{
+                    fontFamily: 'var(--font-inter)',
+                    fontWeight: 900,
+                    fontSize: 40,
+                    lineHeight: 1,
+                    letterSpacing: '-0.03em',
+                  }}
+                >
+                  {p.label}
+                </span>
+              </Link>
+            )
+          })}
+        </div>
+
+        <a
+          href={RESUME_URL}
+          target='_blank'
+          rel='noreferrer'
+          onClick={close}
+          className='mt-auto inline-block w-fit border-2 border-black bg-black px-[18px] py-2 font-bold text-violet-300'
+          style={{ fontFamily: 'var(--font-inter)', fontSize: 16 }}
         >
-          home
-        </Link>
-        <Link
-          className={currentPage === '/contact' ? 'pointer-events-none line-through' : ''}
-          href='/contact'
-          onClick={handleOnClick}
-        >
-          contact
-        </Link>
-        <Link
-          className={currentPage === '/projects' ? 'pointer-events-none line-through' : ''}
-          href='/projects'
-          onClick={handleOnClick}
-        >
-          projects
-        </Link>
-        <Button onClick={handleOnClick} />
+          résumé →
+        </a>
       </div>
     </nav>
   )

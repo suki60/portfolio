@@ -1,23 +1,19 @@
 import React from 'react'
 
+// Brutalist burger: a hard-bordered square; the three bars cross into an X when open.
 const Burger = ({ open, setOpen }) => (
-  <button className='z-50 flex h-8 w-8 flex-col justify-around p-0' onClick={() => setOpen(!open)}>
-    <div
-      className={`h-1 w-full origin-center transform rounded-full bg-black transition-all duration-300 ${
-        open ? ' rotate-45' : 'rotate-0'
-      }`}
-      style={{ transformOrigin: '1px center' }}
+  <button
+    type='button'
+    aria-label='menu'
+    onClick={() => setOpen(!open)}
+    className='z-50 flex h-10 w-10 flex-col items-center justify-center gap-[5px] border-2 border-black bg-white px-2'
+  >
+    <span
+      className={`h-[3px] w-full bg-black transition-all duration-300 ${open ? 'translate-y-[8px] rotate-45' : ''}`}
     />
-    <div
-      className={`h-1 w-full transform rounded-full bg-black transition-all duration-300 ${
-        open ? 'opacity-0' : 'opacity-100'
-      }`}
-    />
-    <div
-      className={`h-1 w-full origin-center transform rounded-full bg-black transition-all duration-300 ${
-        open ? '-rotate-45' : 'rotate-0'
-      }`}
-      style={{ transformOrigin: '1px center' }}
+    <span className={`h-[3px] w-full bg-black transition-all duration-300 ${open ? 'opacity-0' : ''}`} />
+    <span
+      className={`h-[3px] w-full bg-black transition-all duration-300 ${open ? '-translate-y-[8px] -rotate-45' : ''}`}
     />
   </button>
 )
