@@ -33,9 +33,18 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'jsx-quotes': ['error', 'prefer-single'],
     'comma-dangle': ['error', 'always-multiline'],
-    'max-len': ['error', { code: 120, ignoreUrls: true }],
+    'max-len': [
+      'error',
+      {
+        code: 120,
+        ignoreUrls: true,
+        ignoreComments: true,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
+        ignoreRegExpLiterals: true,
+      },
+    ],
     'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
     ...importRules,
   },
-  
 }
