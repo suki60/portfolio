@@ -34,17 +34,17 @@ const Home = () => (
       {/* THE WORD GAME — violet box is the hinge:
           "hello" (top) -> hello i'm francesc altes
           "world" (bottom) -> welcome to my world */}
-      <div className='grid w-full grid-cols-1 justify-items-center gap-1.5 sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] sm:items-center sm:gap-x-[18px] sm:gap-y-0'>
+      <div className='grid w-full grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-x-[8px] gap-y-0 sm:gap-x-[18px]'>
         {/* left phrase — drops to meet "world" */}
-        <div className='flex flex-col justify-center sm:justify-self-end'>
+        <div className='flex flex-col justify-center justify-self-end'>
           <h1
-            className='m-0 whitespace-nowrap lowercase sm:translate-y-[0.675em]'
+            className='m-0 whitespace-nowrap lowercase translate-y-[0.675em]'
             style={{
               fontFamily: 'var(--font-inter)',
               fontWeight: 900,
               lineHeight: 1,
               letterSpacing: '-0.04em',
-              fontSize: 'clamp(34px,4.6vw,46px)',
+              fontSize: 'clamp(12px,3.5vw,46px)',
             }}
           >
             welcome to my
@@ -58,7 +58,7 @@ const Home = () => (
             fontFamily: 'var(--font-mono)',
             fontWeight: 700,
             lineHeight: 1,
-            fontSize: 'clamp(34px,4.6vw,46px)',
+            fontSize: 'clamp(12px,3.5vw,46px)',
             color: '#0a0a0a',
             aspectRatio: '16 / 10',
             width: '4.7em',
@@ -73,15 +73,15 @@ const Home = () => (
         </span>
 
         {/* right phrase — rises to meet "hello" */}
-        <div className='flex flex-col justify-center sm:justify-self-start'>
+        <div className='flex flex-col justify-center justify-self-start'>
           <h1
-            className='m-0 whitespace-nowrap lowercase sm:-translate-y-[0.675em]'
+            className='m-0 whitespace-nowrap lowercase -translate-y-[0.675em]'
             style={{
               fontFamily: 'var(--font-inter)',
               fontWeight: 900,
               lineHeight: 1,
               letterSpacing: '-0.04em',
-              fontSize: 'clamp(34px,4.6vw,46px)',
+              fontSize: 'clamp(12px,3.5vw,46px)',
             }}
           >
             i&rsquo;m francesc altes
