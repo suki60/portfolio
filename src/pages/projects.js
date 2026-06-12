@@ -24,38 +24,6 @@ const projects = [
     stack: 'next.js / tailwind',
     href: '/',
   },
-  {
-    name: 'whitepepper',
-    description: 'simulates white paper',
-    year: '2023',
-    role: 'solo build',
-    stack: 'react / canvas',
-    href: '#',
-  },
-  {
-    name: 'ledger',
-    description: 'a stupidly minimal expense tracker',
-    year: '2024',
-    role: 'design + dev',
-    stack: 'next.js / sqlite',
-    href: '#',
-  },
-  {
-    name: 'frame',
-    description: 'photo grid + contact-sheet generator',
-    year: '2023',
-    role: 'weekend hack',
-    stack: 'svelte / wasm',
-    href: '#',
-  },
-  {
-    name: 'monospace',
-    description: 'type specimen playground for mono fonts',
-    year: '2022',
-    role: 'experiment',
-    stack: 'vanilla js',
-    href: '#',
-  },
 ]
 
 const Projects = () => (
