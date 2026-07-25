@@ -1,9 +1,9 @@
+import { ViewportProvider } from '@suki60/use-viewport'
 import App from 'next/app'
 import UAParser from 'ua-parser-js'
 
 import Layout from '~/components/Layout'
 import { ThemeProvider } from '~/contexts/ThemeContext'
-import { ViewportProvider } from '~/contexts/ViewportContext'
 import '~/styles/globals.css'
 
 const getSSRViewport = userAgent => {
