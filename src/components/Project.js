@@ -7,11 +7,14 @@ const pad = i => String(i + 1).padStart(2, '0')
 const Project = ({ project, index }) => {
   const accent = index === 0
   const stripe = accent ? 'rgba(10,10,10,0.16)' : 'rgba(10,10,10,0.10)'
+  const external = /^https?:\/\//.test(project.href || '')
 
   return (
     <Link
       href={project.href || '#'}
-      className='block border-2 border-black bg-white p-[18px] shadow-[8px_8px_0_#0a0a0a] transition-all duration-150 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[12px_12px_0_#c3b5fd] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[4px_4px_0_#0a0a0a]'
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
+      className='flex h-[340px] flex-col border-2 border-black bg-white p-[18px] shadow-[8px_8px_0_#0a0a0a] transition-all duration-150 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[12px_12px_0_#c3b5fd] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[4px_4px_0_#0a0a0a]'
       style={{ fontFamily: 'var(--font-inter)' }}
     >
       {/* thumbnail placeholder */}
@@ -41,13 +44,23 @@ const Project = ({ project, index }) => {
         </div>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, fontWeight: 700 }}>{pad(index)}</div>
       </div>
-      <div className='mt-1' style={{ fontWeight: 300, fontSize: 15 }}>
+      <div
+        className='mt-1'
+        style={{
+          fontWeight: 300,
+          fontSize: 15,
+          display: '-webkit-box',
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden',
+        }}
+      >
         {project.description}
       </div>
 
       {/* meta footer */}
       <div
-        className='mt-4 flex flex-wrap items-center gap-4 border-t-2 border-black pt-3'
+        className='mt-auto flex flex-wrap items-center gap-4 border-t-2 border-black pt-3'
         style={{ fontFamily: 'var(--font-mono)', fontSize: 11 }}
       >
         <span>{project.year}</span>

@@ -26,6 +26,14 @@ const projects = [
     stack: 'next.js / tailwind',
     href: '/',
   },
+  {
+    name: 'use-viewport',
+    description: 'react hook + context for responsive breakpoint detection, with ssr support',
+    year: '2026',
+    role: 'design + dev',
+    stack: 'react / npm',
+    href: 'https://www.npmjs.com/package/@suki60/use-viewport',
+  },
 ]
 
 const Projects = () => (
@@ -59,7 +67,7 @@ const Projects = () => (
           <Project key={project.name} project={project} index={i} />
         ))}
         <div
-          className='flex min-h-[120px] items-center justify-center border-2 border-dashed border-black'
+          className='flex h-[340px] items-center justify-center border-2 border-dashed border-black'
           style={{ fontFamily: 'var(--font-mono)', fontSize: 13 }}
         >
           [ more soon ]
