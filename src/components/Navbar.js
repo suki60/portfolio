@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import { useViewport } from '@suki60/use-viewport'
 import { Inter, Space_Mono } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -7,7 +8,6 @@ import { useRouter } from 'next/router'
 
 import Burger from './Burger'
 import Menu from './Menu'
-import { useViewport } from '~/contexts/ViewportContext'
 
 const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '700', '800', '900'], variable: '--font-inter' })
 const mono = Space_Mono({ subsets: ['latin'], weight: ['400', '700'], variable: '--font-mono' })
