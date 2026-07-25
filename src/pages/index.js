@@ -25,6 +25,7 @@ const Home = () => (
 
     <div
       className={`${inter.variable} ${mono.variable} flex min-h-[calc(100vh-var(--navbar-height))] flex-col items-center justify-center px-6 text-center`}
+      style={{ transform: 'translateY(calc(var(--navbar-height) / -2))' }}
     >
       {/* mono location tag */}
       <div className='mb-9 uppercase' style={{ fontFamily: 'var(--font-mono)', fontSize: 13, letterSpacing: '0.18em' }}>
