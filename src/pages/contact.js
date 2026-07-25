@@ -62,7 +62,7 @@ const Contact = () => (
       <meta name='description' content='francesc altes — senior software engineer' />
     </Head>
 
-    <div className={`${inter.variable} ${mono.variable} container pt-12 pb-14 text-center`}>
+    <div className={`${inter.variable} ${mono.variable} container pb-12 text-center`}>
       {/* header */}
       <div className='flex flex-col items-center gap-[22px]'>
         <Image
@@ -96,7 +96,7 @@ const Contact = () => (
       </div>
 
       {/* cards */}
-      <div className='mt-10 grid grid-cols-1 gap-6 text-left sm:grid-cols-3'>
+      <div className='mt-10 grid grid-cols-1 gap-6 text-left md:grid-cols-3'>
         <Card label='past'>{NARRATIVE.past}</Card>
         <Card label='present' accent>
           {NARRATIVE.present}

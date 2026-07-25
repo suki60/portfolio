@@ -33,7 +33,7 @@ const Navbar = () => {
           <Image alt='logo' src='/fa-logo.svg' height={48} width={48} />
         </Link>
 
-        {up('sm') ? (
+        {up('md') ? (
           <div className='flex items-center gap-[18px]'>
             {PAGES.map(p =>
               current === p.href ? (
