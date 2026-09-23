@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/cv", "destination": "https://cv-six-ivory-51.vercel.app" },
+    { "source": "/cv/:path*", "destination": "https://cv-six-ivory-51.vercel.app/:path*" }
+  ]
+}

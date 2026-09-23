@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 import Burger from './Burger'
 import Menu from './Menu'
 
-export const RESUME_URL = 'https://drive.google.com/file/d/1zBiam17FE5C2ZuUv4dCdp0Lo3Y6_UEvG/view?usp=sharing'
+export const RESUME_URL = '/cv'
 
 export const PAGES = [
   { href: '/', label: 'home' },
