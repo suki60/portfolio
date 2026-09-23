@@ -1,18 +1,20 @@
 import React from 'react'
 
-import { Inter, Space_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import Head from 'next/head'
 import Image from 'next/image'
 
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '700', '800', '900'],
+const inter = localFont({
+  src: '../fonts/inter-latin-variable.woff2',
+  weight: '100 900',
   variable: '--font-inter',
 })
 
-const mono = Space_Mono({
-  subsets: ['latin'],
-  weight: ['400', '700'],
+const mono = localFont({
+  src: [
+    { path: '../fonts/space-mono-400-latin.woff2', weight: '400' },
+    { path: '../fonts/space-mono-700-latin.woff2', weight: '700' },
+  ],
   variable: '--font-mono',
 })
 

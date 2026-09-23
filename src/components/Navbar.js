@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { useViewport } from '@suki60/use-viewport'
-import { Inter, Space_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -9,8 +9,18 @@ import { useRouter } from 'next/router'
 import Burger from './Burger'
 import Menu from './Menu'
 
-const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '700', '800', '900'], variable: '--font-inter' })
-const mono = Space_Mono({ subsets: ['latin'], weight: ['400', '700'], variable: '--font-mono' })
+const inter = localFont({
+  src: '../fonts/inter-latin-variable.woff2',
+  weight: '100 900',
+  variable: '--font-inter',
+})
+const mono = localFont({
+  src: [
+    { path: '../fonts/space-mono-400-latin.woff2', weight: '400' },
+    { path: '../fonts/space-mono-700-latin.woff2', weight: '700' },
+  ],
+  variable: '--font-mono',
+})
 
 export const RESUME_URL = 'https://drive.google.com/file/d/1zBiam17FE5C2ZuUv4dCdp0Lo3Y6_UEvG/view?usp=sharing'
 
