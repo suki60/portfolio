@@ -23,7 +23,7 @@ const Navbar = () => {
   const current = router.pathname
 
   return (
-    <header className='bg-white'>
+    <header className='relative z-50 bg-white'>
       <div className='mx-auto flex h-[var(--navbar-height)] max-w-[1536px] items-center justify-between px-6 sm:px-10'>
         <Link href='/' className='flex items-center'>
           <Image alt='logo' src='/fa-logo.svg' height={48} width={48} />

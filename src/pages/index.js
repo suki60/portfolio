@@ -78,7 +78,7 @@ const Home = () => (
       </div>
 
       {/* CTAs */}
-      <div className='mt-12 flex flex-wrap justify-center gap-4'>
+      <div className='relative z-10 mt-12 flex flex-wrap justify-center gap-4'>
         <Link
           href='/projects'
           className='border-2 border-black bg-black px-5 py-2.5 font-bold text-white shadow-[4px_4px_0_#c3b5fd] transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_#c3b5fd] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none'
