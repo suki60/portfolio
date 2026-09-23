@@ -1,20 +1,5 @@
-import localFont from 'next/font/local'
 import Head from 'next/head'
 import Link from 'next/link'
-
-const inter = localFont({
-  src: '../fonts/inter-latin-variable.woff2',
-  weight: '100 900',
-  variable: '--font-inter',
-})
-
-const mono = localFont({
-  src: [
-    { path: '../fonts/space-mono-400-latin.woff2', weight: '400' },
-    { path: '../fonts/space-mono-700-latin.woff2', weight: '700' },
-  ],
-  variable: '--font-mono',
-})
 
 const Home = () => (
   <>
@@ -26,7 +11,7 @@ const Home = () => (
     </Head>
 
     <div
-      className={`${inter.variable} ${mono.variable} flex min-h-[calc(100vh-var(--navbar-height))] flex-col items-center justify-center px-6 text-center`}
+      className='flex min-h-[calc(100vh-var(--navbar-height))] flex-col items-center justify-center px-6 text-center'
       style={{ transform: 'translateY(calc(var(--navbar-height) / -2))' }}
     >
       {/* mono location tag */}

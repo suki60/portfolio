@@ -1,21 +1,6 @@
-import localFont from 'next/font/local'
 import Head from 'next/head'
 
 import Project from '~/components/Project'
-
-const inter = localFont({
-  src: '../fonts/inter-latin-variable.woff2',
-  weight: '100 900',
-  variable: '--font-inter',
-})
-
-const mono = localFont({
-  src: [
-    { path: '../fonts/space-mono-400-latin.woff2', weight: '400' },
-    { path: '../fonts/space-mono-700-latin.woff2', weight: '700' },
-  ],
-  variable: '--font-mono',
-})
 
 const pad = i => String(i + 1).padStart(2, '0')
 
@@ -44,7 +29,7 @@ const Projects = () => (
       <title>projects</title>
       <meta name='description' content='things i made' />
     </Head>
-    <div className={`${inter.variable} ${mono.variable} container mt-2 pb-20`}>
+    <div className='container mt-2 pb-20'>
       {/* page head */}
       <div className='flex items-end justify-between gap-5'>
         <h1

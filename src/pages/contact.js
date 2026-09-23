@@ -1,22 +1,7 @@
 import React from 'react'
 
-import localFont from 'next/font/local'
 import Head from 'next/head'
 import Image from 'next/image'
-
-const inter = localFont({
-  src: '../fonts/inter-latin-variable.woff2',
-  weight: '100 900',
-  variable: '--font-inter',
-})
-
-const mono = localFont({
-  src: [
-    { path: '../fonts/space-mono-400-latin.woff2', weight: '400' },
-    { path: '../fonts/space-mono-700-latin.woff2', weight: '700' },
-  ],
-  variable: '--font-mono',
-})
 
 const NARRATIVE = {
   past: 'mechanical engineering grad, a builder at heart. the desk jobs never thrilled me — so 8 years ago i took the leap into code, and never looked back.',
@@ -64,7 +49,7 @@ const Contact = () => (
       <meta name='description' content='francesc altes — senior software engineer' />
     </Head>
 
-    <div className={`${inter.variable} ${mono.variable} container pb-12 text-center`}>
+    <div className='container pb-12 text-center'>
       {/* header */}
       <div className='flex flex-col items-center gap-[22px]'>
         <Image

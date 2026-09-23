@@ -1,9 +1,10 @@
 import React from 'react'
 
-import Navbar from './Navbar'
+import Navbar from '~/components/Navbar'
+import { inter, mono } from '~/fonts'
 
 const Layout = ({ children }) => (
-  <div>
+  <div className={`${inter.variable} ${mono.variable}`} style={{ fontFamily: 'var(--font-inter)' }}>
     <Navbar />
     <main>{children}</main>
   </div>

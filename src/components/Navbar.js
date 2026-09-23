@@ -1,26 +1,12 @@
 import React, { useState } from 'react'
 
 import { useViewport } from '@suki60/use-viewport'
-import localFont from 'next/font/local'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import Burger from './Burger'
 import Menu from './Menu'
-
-const inter = localFont({
-  src: '../fonts/inter-latin-variable.woff2',
-  weight: '100 900',
-  variable: '--font-inter',
-})
-const mono = localFont({
-  src: [
-    { path: '../fonts/space-mono-400-latin.woff2', weight: '400' },
-    { path: '../fonts/space-mono-700-latin.woff2', weight: '700' },
-  ],
-  variable: '--font-mono',
-})
 
 export const RESUME_URL = 'https://drive.google.com/file/d/1zBiam17FE5C2ZuUv4dCdp0Lo3Y6_UEvG/view?usp=sharing'
 
@@ -37,7 +23,7 @@ const Navbar = () => {
   const current = router.pathname
 
   return (
-    <header className={`${inter.variable} ${mono.variable} bg-white`} style={{ fontFamily: 'var(--font-inter)' }}>
+    <header className='bg-white'>
       <div className='mx-auto flex h-[var(--navbar-height)] max-w-[1536px] items-center justify-between px-6 sm:px-10'>
         <Link href='/' className='flex items-center'>
           <Image alt='logo' src='/fa-logo.svg' height={48} width={48} />
