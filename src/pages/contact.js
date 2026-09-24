@@ -4,9 +4,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 const NARRATIVE = {
-  past: 'mechanical engineering grad, a builder at heart. the desk jobs never thrilled me — so 8 years ago i took the leap into code, and never looked back.',
+  past: 'studied mechanical engineering, but made the leap into the digital world. spent 8 years at getapp (gartner) — joined as a junior in its startup days, left as senior once it had become a full-grown enterprise company.',
   present:
-    'senior software engineer at gartner, barcelona. building partner & vendor portals and leading next.js app-router migrations in react + typescript.',
+    'took a break, put my bike in a box, landed in japan, and rode it end to end, chasing quiet roads and ramen. came back recharged — now riding the ai wave, building agents, and looking for my next chapter.',
   future: 'pairing an engineer\u2019s mindset with the superpowers of AI to push what\u2019s buildable with code.',
 }
 
