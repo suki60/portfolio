@@ -7,11 +7,6 @@
   --breakpoint-xl: 1536px;
 }
 
-@utility container {
-  margin-inline: auto;
-  padding-inline: 1rem;
-}
-
 :root {
   --navbar-height: 100px;
 }

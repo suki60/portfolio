@@ -47,7 +47,7 @@ const Card = ({ label, children, accent }: CardProps) => (
 )
 
 const Contact = () => (
-  <div className='container pb-12 text-center'>
+  <div className='container mx-auto px-4 pb-12 text-center'>
     {/* header */}
     <div className='flex flex-col items-center gap-[22px]'>
       <Image

@@ -26,7 +26,7 @@ const projects: ProjectData[] = [
 ]
 
 const Projects = () => (
-  <div className='container mt-2 pb-20'>
+  <div className='container mx-auto mt-2 px-4 pb-20'>
     {/* page head */}
     <div className='flex flex-wrap items-end justify-between gap-5'>
       <h1
