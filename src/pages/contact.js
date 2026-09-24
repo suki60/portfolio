@@ -4,18 +4,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 const NARRATIVE = {
-  past: 'studied mechanical engineering, but made the leap into the digital world. spent 8 years at getapp (gartner) — joined as a junior in its startup days, left as senior once it had become a full-grown enterprise company.',
+  past: 'studied mechanical engineering, but made the leap into the digital world. spent 8 years at getapp (gartner) — joined as a junior in its startup days, left as senior once it had become a full-grown enterprise company',
   present:
-    'took a break, put my bike in a box, landed in japan, and rode it end to end, chasing quiet roads and ramen. came back recharged — now riding the ai wave, building agents, and looking for my next chapter.',
-  future: 'pairing an engineer\u2019s mindset with the superpowers of AI to push what\u2019s buildable with code.',
+    'took a break, put my bike in a box, landed in japan, and rode it end to end, chasing quiet roads and ramen. came back recharged — now riding the ai wave, building agents, and looking for my next chapter',
+  future: 'let\'s make it, together',
 }
-
-const LINKS = [
-  { k: 'email', v: 'fran.altes@gmail.com', href: 'mailto:fran.altes@gmail.com' },
-  { k: 'site', v: 'fran-altes.com', href: 'https://fran-altes.com' },
-  { k: 'github', v: 'suki60', href: 'https://github.com/suki60' },
-  { k: 'linkedin', v: 'francesc-altes', href: 'https://linkedin.com/in/francesc-altes' },
-]
 
 const Label = ({ children }) => (
   <span
@@ -88,7 +81,24 @@ const Contact = () => (
         <Card label='present' accent>
           {NARRATIVE.present}
         </Card>
-        <Card label='future'>{NARRATIVE.future}</Card>
+        <Card label='future'>
+          {NARRATIVE.future}{' '}
+          <a
+            href='mailto:fran.altes@gmail.com'
+            className='border-b-2 border-violet-300 text-black no-underline hover:bg-violet-300'
+          >
+            fran.altes@gmail.com
+          </a>{' '}
+          <span className='opacity-50'>/</span>{' '}
+          <a
+            href='https://linkedin.com/in/francesc-altes'
+            target='_blank'
+            rel='noreferrer'
+            className='border-b-2 border-violet-300 text-black no-underline hover:bg-violet-300'
+          >
+            linkedin
+          </a>
+        </Card>
       </div>
 
       {/* quote */}
@@ -108,25 +118,6 @@ const Contact = () => (
         <span className='text-violet-300' style={{ fontFamily: 'var(--font-mono)', fontSize: 13 }}>
           — leonardo da vinci
         </span>
-      </div>
-
-      {/* links */}
-      <div
-        className='mt-7 flex flex-wrap justify-center gap-7 border-t-[3px] border-black pt-[18px]'
-        style={{ fontFamily: 'var(--font-mono)', fontSize: 13 }}
-      >
-        {LINKS.map(l => (
-          <a
-            key={l.k}
-            href={l.href}
-            target={l.href.startsWith('mailto') ? undefined : '_blank'}
-            rel='noreferrer'
-            className='text-black no-underline'
-          >
-            <span className='opacity-50'>{l.k} /</span>{' '}
-            <span className='border-b-2 border-violet-300 hover:bg-violet-300'>{l.v}</span>
-          </a>
-        ))}
       </div>
     </div>
   </>
