@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  transpilePackages: ['@suki60/use-viewport'],
   async rewrites() {
     return process.env.NODE_ENV === 'development'
       ? [

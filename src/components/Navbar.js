@@ -1,9 +1,11 @@
+'use client'
+
 import React, { useState } from 'react'
 
 import { useViewport } from '@suki60/use-viewport'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 
 import Burger from './Burger'
 import Menu from './Menu'
@@ -19,8 +21,7 @@ export const PAGES = [
 const Navbar = () => {
   const { up } = useViewport()
   const [open, setOpen] = useState(false)
-  const router = useRouter()
-  const current = router.pathname
+  const current = usePathname()
 
   return (
     <header className='relative z-50 bg-white'>
