@@ -1,11 +1,11 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 
-import { SCREEN, type Breakpoint, VIEWPORTS } from './constants'
-import { createBreakpointHelpers, getMinWidthMediaQuery, selectViewport } from './helpers'
+import { SCREEN, VIEWPORTS, type Viewport } from './constants'
+import { createBreakpointHelpers, getClientViewport, getMinWidthMediaQuery, type BreakpointHelpers } from './helpers'
 
 type ViewportContextValue = {
-  viewport: string | null
-}
+  viewport: Viewport
+} & BreakpointHelpers
 
 const ViewportContext = createContext<ViewportContextValue | undefined>(undefined)
 
@@ -21,37 +21,30 @@ const useViewport = (): ViewportContextValue => {
 
 interface ViewportProviderProps {
   children: ReactNode
-  /** Map of breakpoint name -> min-width in px. Defaults to MUI-style breakpoints. */
-  breakpoints?: Breakpoint[]
-  /** Breakpoint to use for the first server-rendered pass, before matchMedia can run client-side. */
-  ssrViewport?: string | null
+  ssrViewport: Viewport
 }
 
-const ViewportProvider = ({ children, breakpoints = SCREEN, ssrViewport = null }: ViewportProviderProps) => {
-  const [viewport, setViewport] = useState<string | null>(ssrViewport)
+const ViewportProvider = ({ children, ssrViewport }: ViewportProviderProps) => {
+  const [viewport, setViewport] = useState(ssrViewport)
 
   useEffect(() => {
     const update = () => {
-      const v = selectViewport(breakpoints, VIEWPORTS)
-      setViewport(selectViewport(breakpoints, VIEWPORTS))
-      console.log(v)
+      const viewport = getClientViewport()
+      setViewport(viewport)
     }
 
-    // update in case server Viewport !== client viewport
     update()
 
-    const mediaQueryLists = VIEWPORTS.map(key => window.matchMedia(getMinWidthMediaQuery(breakpoints[key])))
+    const mediaQueryLists = VIEWPORTS.map(key => window.matchMedia(getMinWidthMediaQuery(SCREEN[key])))
 
     mediaQueryLists.forEach(mql => mql.addEventListener('change', update))
 
     return () => {
       mediaQueryLists.forEach(mql => mql.removeEventListener('change', update))
     }
+  }, [])
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [JSON.stringify(breakpoints)])
-
-  const value: ViewportContextValue = {
+  const value = {
     viewport,
     ...createBreakpointHelpers(viewport, VIEWPORTS),
   }

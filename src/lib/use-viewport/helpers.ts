@@ -1,9 +1,11 @@
-import type { Breakpoint } from './constants'
+import { SCREEN, VIEWPORTS, type Breakpoint, type Viewport } from './constants'
 
 type MinWidthMediaQuery = `(min-width: ${Breakpoint}px)`
+type BreakpointHelpers = ReturnType<typeof createBreakpointHelpers>
+
 const getMinWidthMediaQuery = (width: Breakpoint): MinWidthMediaQuery => `(min-width: ${width}px)`
 
-const createBreakpointHelpers = (selectedViewport: string | null, keys: string[]) => {
+const createBreakpointHelpers = (selectedViewport: Viewport, keys: string[]) => {
   const is = (breakpoint: string): boolean => selectedViewport === breakpoint
 
   const up = (breakpoint: string): boolean => {
@@ -19,16 +21,12 @@ const createBreakpointHelpers = (selectedViewport: string | null, keys: string[]
   return { is, up, down }
 }
 
-const selectViewport = (breakpoints: Breakpoint[], keys: string[]): string | null => {
-  let selected: string | null = null
 
-  for (const key of keys) {
-    if (window.matchMedia(getMinWidthMediaQuery(breakpoints[key])).matches) {
-      selected = key
-    }
-  }
+const getClientViewport = (): Viewport => {
+  const viewport = VIEWPORTS.toReversed().find((v) => window.matchMedia(getMinWidthMediaQuery(SCREEN[v])).matches)
 
-  return selected
+  return viewport ?? 'xs'
 }
 
-export { getMinWidthMediaQuery, createBreakpointHelpers, selectViewport }
+export { getMinWidthMediaQuery, createBreakpointHelpers, getClientViewport }
+export type { BreakpointHelpers }
