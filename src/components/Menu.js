@@ -52,7 +52,7 @@ const Menu = ({ open, setOpen, current }) => {
           target='_blank'
           rel='noreferrer'
           onClick={close}
-          className='mt-auto inline-block w-fit border-2 border-black bg-black px-[18px] py-2 font-bold text-violet-300'
+          className='mt-10 inline-block w-fit border-2 border-black bg-black px-[18px] py-2 font-bold text-violet-300'
           style={{ fontFamily: 'var(--font-inter)', fontSize: 16 }}
         >
           résumé →
