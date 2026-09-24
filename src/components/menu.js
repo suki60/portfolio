@@ -2,7 +2,7 @@ import React from 'react'
 
 import Link from 'next/link'
 
-import { PAGES, RESUME_URL } from './Navbar'
+import { PAGES, RESUME_URL } from './navbar'
 
 // Brutalist slide-in panel: violet field, hard right border, big lowercase links
 // with mono index numbers, line-through on the current page, black résumé button.

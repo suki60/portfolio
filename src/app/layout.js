@@ -2,7 +2,7 @@ import { headers } from 'next/headers'
 import Script from 'next/script'
 
 import Providers from './providers'
-import Layout from '~/components/Layout'
+import Layout from '~/components/layout'
 import { inter, mono } from '~/fonts'
 import '~/styles/globals.css'
 

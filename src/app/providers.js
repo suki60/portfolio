@@ -2,7 +2,7 @@
 
 import { ViewportProvider, getServerViewport } from '@suki60/use-viewport'
 
-import { ThemeProvider } from '~/contexts/ThemeContext'
+import { ThemeProvider } from '~/contexts/theme-context'
 
 const Providers = ({ userAgent, children }) => (
   <ThemeProvider>
