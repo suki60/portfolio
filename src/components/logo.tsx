@@ -2,7 +2,13 @@ import React from 'react'
 
 import Image from 'next/image'
 
-const Logo = ({ src, alt, size }) => (
+type LogoProps = {
+  src: string
+  alt: string
+  size: number | string
+}
+
+const Logo = ({ src, alt, size }: LogoProps) => (
   <div className='relative' style={{ height: size, width: size }}>
     <Image
       alt={alt}

@@ -1,12 +1,16 @@
+import { ReactNode } from 'react'
+
+import { Metadata, Viewport } from 'next'
 import { headers } from 'next/headers'
 import Script from 'next/script'
 
-import Providers from './providers'
 import Layout from '~/components/layout'
 import { inter, mono } from '~/fonts'
+
+import Providers from './providers'
 import '~/styles/globals.css'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'francesc altes',
   description: 'welcome to my world — i\'m francesc altes',
   icons: {
@@ -14,12 +18,16 @@ export const metadata = {
   },
 }
 
-export const viewport = {
+export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
 }
 
-const RootLayout = async ({ children }) => {
+type RootLayoutProps = {
+  children: ReactNode
+}
+
+const RootLayout = async ({ children }: RootLayoutProps) => {
   const headerList = await headers()
   const userAgent = headerList.get('user-agent') || ''
 

@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
+
+type BurgerProps = {
+  open: boolean
+  setOpen: Dispatch<SetStateAction<boolean>>
+}
 
 // Brutalist burger: a hard-bordered square; the three bars cross into an X when open.
-const Burger = ({ open, setOpen }) => (
+const Burger = ({ open, setOpen }: BurgerProps) => (
   <button
     type='button'
     aria-label='menu'

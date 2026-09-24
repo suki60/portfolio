@@ -2,9 +2,21 @@ import React from 'react'
 
 import Link from 'next/link'
 
-const pad = i => String(i + 1).padStart(2, '0')
+export type ProjectData = {
+  name: string
+  description: string
+  stack: string[]
+  href?: string
+}
 
-const Project = ({ project, index }) => {
+type ProjectProps = {
+  project: ProjectData
+  index: number
+}
+
+const pad = (i: number) => String(i + 1).padStart(2, '0')
+
+const Project = ({ project, index }: ProjectProps) => {
   const external = /^https?:\/\//.test(project.href || '')
 
   return (

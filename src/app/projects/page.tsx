@@ -1,13 +1,15 @@
-import Project from '~/components/project'
+import { Metadata } from 'next'
 
-export const metadata = {
+import Project, { ProjectData } from '~/components/project'
+
+export const metadata: Metadata = {
   title: 'projects',
   description: 'things i made',
 }
 
-const pad = i => String(i + 1).padStart(2, '0')
+const pad = (i: number) => String(i + 1).padStart(2, '0')
 
-const projects = [
+const projects: ProjectData[] = [
   {
     name: 'portfolio',
     description: 'personal portfolio',

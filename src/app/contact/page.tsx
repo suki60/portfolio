@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
+import { Metadata } from 'next'
 import Image from 'next/image'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'contact',
   description: 'francesc altes — senior software engineer',
 }
@@ -14,7 +15,7 @@ const NARRATIVE = {
   future: 'let\'s make it, together',
 }
 
-const Label = ({ children }) => (
+const Label = ({ children }: { children: ReactNode }) => (
   <span
     className='inline-block border-2 border-black bg-violet-300 px-[9px] py-0.5 uppercase'
     style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: 12, letterSpacing: '0.14em' }}
@@ -23,7 +24,13 @@ const Label = ({ children }) => (
   </span>
 )
 
-const Card = ({ label, children, accent }) => (
+type CardProps = {
+  label: string
+  children: ReactNode
+  accent?: boolean
+}
+
+const Card = ({ label, children, accent }: CardProps) => (
   <div
     className={`border-2 border-black bg-white p-5 ${
       accent ? 'shadow-[8px_8px_0_#c3b5fd]' : 'shadow-[8px_8px_0_#0a0a0a]'

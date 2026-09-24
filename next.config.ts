@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from 'next'
+
+const nextConfig: NextConfig = {
   transpilePackages: ['@suki60/use-viewport'],
   async rewrites() {
     return process.env.NODE_ENV === 'development'
@@ -11,4 +12,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+export default nextConfig

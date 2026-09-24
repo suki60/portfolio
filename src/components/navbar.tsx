@@ -12,7 +12,12 @@ import Menu from './menu'
 
 export const RESUME_URL = '/cv'
 
-export const PAGES = [
+export type Page = {
+  href: string
+  label: string
+}
+
+export const PAGES: Page[] = [
   { href: '/', label: 'home' },
   { href: '/contact', label: 'contact' },
   { href: '/projects', label: 'projects' },

@@ -1,6 +1,7 @@
+import { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'home',
   description: 'welcome to my world — i\'m francesc altes',
 }

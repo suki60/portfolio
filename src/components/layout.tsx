@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 import Navbar from '~/components/navbar'
 
-const Layout = ({ children }) => (
+type LayoutProps = {
+  children: ReactNode
+}
+
+const Layout = ({ children }: LayoutProps) => (
   <div style={{ fontFamily: 'var(--font-inter)' }}>
     <Navbar />
     <main>{children}</main>

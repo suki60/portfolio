@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 
 import Link from 'next/link'
 
 import { PAGES, RESUME_URL } from './navbar'
 
+type MenuProps = {
+  open: boolean
+  setOpen: Dispatch<SetStateAction<boolean>>
+  current: string
+}
+
 // Brutalist slide-in panel: violet field, hard right border, big lowercase links
 // with mono index numbers, line-through on the current page, black résumé button.
-const Menu = ({ open, setOpen, current }) => {
+const Menu = ({ open, setOpen, current }: MenuProps) => {
   const close = () => setOpen(false)
 
   return (
