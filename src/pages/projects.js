@@ -13,7 +13,8 @@ const projects = [
   },
   {
     name: 'use-viewport',
-    description: 'react hook + context for responsive breakpoint detection, with ssr support',
+    description:
+      'Type-safe React hook for responsive breakpoints — no innerWidth listeners or media query hacks. up/down/is helpers, SSR-safe.',
     stack: ['react', 'npm'],
     href: 'https://www.npmjs.com/package/@suki60/use-viewport',
   },
