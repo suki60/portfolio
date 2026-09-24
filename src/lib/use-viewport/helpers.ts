@@ -1,3 +1,5 @@
+import UAParser from 'ua-parser-js'
+
 import { SCREEN, VIEWPORTS, type Breakpoint, type Viewport } from './constants'
 
 type MinWidthMediaQuery = `(min-width: ${Breakpoint}px)`
@@ -21,12 +23,19 @@ const createBreakpointHelpers = (selectedViewport: Viewport, keys: string[]) => 
   return { is, up, down }
 }
 
+const getServerViewport = (userAgent: string): Viewport => {
+  const ua = UAParser(userAgent)
+  const deviceType = ua.device.type
+
+  if (deviceType === 'mobile') return 'xs'
+  if (deviceType === 'tablet') return 'sm'
+  return 'lg'
+}
 
 const getClientViewport = (): Viewport => {
   const viewport = VIEWPORTS.toReversed().find((v) => window.matchMedia(getMinWidthMediaQuery(SCREEN[v])).matches)
-
   return viewport ?? 'xs'
 }
 
-export { getMinWidthMediaQuery, createBreakpointHelpers, getClientViewport }
+export { getMinWidthMediaQuery, createBreakpointHelpers, getServerViewport, getClientViewport }
 export type { BreakpointHelpers }

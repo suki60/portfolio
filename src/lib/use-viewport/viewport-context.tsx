@@ -33,10 +33,10 @@ const ViewportProvider = ({ children, ssrViewport }: ViewportProviderProps) => {
       setViewport(viewport)
     }
 
+    // update viewport in case server viewport !== client viewport
     update()
 
     const mediaQueryLists = VIEWPORTS.map(key => window.matchMedia(getMinWidthMediaQuery(SCREEN[key])))
-
     mediaQueryLists.forEach(mql => mql.addEventListener('change', update))
 
     return () => {
@@ -44,12 +44,16 @@ const ViewportProvider = ({ children, ssrViewport }: ViewportProviderProps) => {
     }
   }, [])
 
-  const value = {
-    viewport,
-    ...createBreakpointHelpers(viewport, VIEWPORTS),
-  }
-
-  return <ViewportContext.Provider value={value}>{children}</ViewportContext.Provider>
+  return (
+    <ViewportContext.Provider
+      value={{
+        viewport,
+        ...createBreakpointHelpers(viewport, VIEWPORTS),
+      }}
+    >
+      {children}
+    </ViewportContext.Provider>
+  )
 }
 
 export { useViewport, ViewportProvider }
