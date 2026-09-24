@@ -19,8 +19,9 @@ export const viewport = {
   initialScale: 1,
 }
 
-const RootLayout = ({ children }) => {
-  const userAgent = headers().get('user-agent') || ''
+const RootLayout = async ({ children }) => {
+  const headerList = await headers()
+  const userAgent = headerList.get('user-agent') || ''
 
   return (
     <html lang='en'>

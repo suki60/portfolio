@@ -6,21 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "fix": "eslint --fix ."
   },
   "dependencies": {
     "@suki60/use-viewport": "^1.1.0",
-    "eslint": "8.34.0",
-    "eslint-config-next": "14.2.35",
-    "next": "14.2.35",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "eslint": "^9.0.0",
+    "eslint-config-next": "16.3.6",
+    "next": "16.3.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^7.0.0",
     "autoprefixer": "^10.4.13",
-    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-prettier": "^10.1.8",
     "postcss": "^8.4.21",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.2.8",

@@ -44,7 +44,7 @@ const Navbar = () => {
                 <Link key={p.href} href={p.href} className='px-1 py-[3px] lowercase text-black underline-offset-4'>
                   {p.label}
                 </Link>
-              )
+              ),
             )}
             <a
               href={RESUME_URL}
