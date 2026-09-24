@@ -31,13 +31,13 @@ const Projects = () => (
     </Head>
     <div className='container mt-2 pb-20'>
       {/* page head */}
-      <div className='flex items-end justify-between gap-5'>
+      <div className='flex flex-wrap items-end justify-between gap-5'>
         <h1
           className='m-0 lowercase'
           style={{
             fontFamily: 'var(--font-inter)',
             fontWeight: 900,
-            fontSize: 92,
+            fontSize: 'clamp(48px,11vw,92px)',
           }}
         >
           projects
@@ -54,7 +54,7 @@ const Projects = () => (
           <Project key={project.name} project={project} index={i} />
         ))}
         <div
-          className='flex h-[340px] items-center justify-center border-2 border-dashed border-black'
+          className='flex h-[220px] items-center justify-center border-2 border-dashed border-black'
           style={{ fontFamily: 'var(--font-mono)', fontSize: 13 }}
         >
           [ more soon ]
