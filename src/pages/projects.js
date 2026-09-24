@@ -8,17 +8,13 @@ const projects = [
   {
     name: 'portfolio',
     description: 'personal portfolio',
-    year: '2024',
-    role: 'design + dev',
-    stack: 'next.js / tailwind',
+    stack: ['next.js', 'tailwind'],
     href: '/',
   },
   {
     name: 'use-viewport',
     description: 'react hook + context for responsive breakpoint detection, with ssr support',
-    year: '2026',
-    role: 'design + dev',
-    stack: 'react / npm',
+    stack: ['react', 'npm'],
     href: 'https://www.npmjs.com/package/@suki60/use-viewport',
   },
 ]

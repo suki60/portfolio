@@ -5,7 +5,6 @@ import Link from 'next/link'
 const pad = i => String(i + 1).padStart(2, '0')
 
 const Project = ({ project, index }) => {
-  const accent = index === 0
   const external = /^https?:\/\//.test(project.href || '')
 
   return (
@@ -39,12 +38,14 @@ const Project = ({ project, index }) => {
 
       {/* meta footer */}
       <div
-        className='mt-auto flex flex-wrap items-center gap-4 border-t-2 border-black pt-3'
+        className='mt-auto flex flex-wrap items-center gap-2 border-t-2 border-black pt-3'
         style={{ fontFamily: 'var(--font-mono)', fontSize: 11 }}
       >
-        <span>{project.year}</span>
-        <span className='opacity-[0.55]'>{project.role}</span>
-        <span className={`ml-auto px-1.5 py-px ${accent ? 'bg-violet-300' : 'bg-neutral-200'}`}>{project.stack}</span>
+        {project.stack.map(tech => (
+          <span key={tech} className='bg-violet-300 px-1.5 py-px'>
+            {tech}
+          </span>
+        ))}
       </div>
     </Link>
   )
