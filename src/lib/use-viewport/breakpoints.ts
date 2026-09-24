@@ -1,7 +1,7 @@
 const typedKeys = <T extends object>(obj: T) => Object.keys(obj) as (keyof T)[]
 const typedValues = <T extends object>(obj: T) => Object.values(obj) as T[keyof T][]
 
-export const SCREEN = {
+const SCREEN = {
   xs: 0,
   sm: 600,
   md: 900,
@@ -9,16 +9,16 @@ export const SCREEN = {
   xl: 1536,
 } as const
 
-export const VIEWPORTS = typedKeys(SCREEN)
-export const BREAKPOINTS = typedValues(SCREEN)
+const VIEWPORTS = typedKeys(SCREEN)
+const BREAKPOINTS = typedValues(SCREEN)
 
 type Screen = typeof SCREEN
 type Viewport = keyof typeof SCREEN
 type Breakpoint = Screen[Viewport]
 
-export const getMinWidthMediaQuery = (width: number): string => `(min-width: ${width}px)`
+const getMinWidthMediaQuery = (width: number): string => `(min-width: ${width}px)`
 
-export const createBreakpointHelpers = (
+const createBreakpointHelpers = (
   selectedViewport: string | null,
   keys: string[],
 ) => {
@@ -37,7 +37,7 @@ export const createBreakpointHelpers = (
   return { is, up, down }
 }
 
-export const selectViewport = (breakpoints: Breakpoint[], keys: string[]): string | null => {
+const selectViewport = (breakpoints: Breakpoint[], keys: string[]): string | null => {
   let selected: string | null = null
 
   for (const key of keys) {
@@ -48,3 +48,14 @@ export const selectViewport = (breakpoints: Breakpoint[], keys: string[]): strin
 
   return selected
 }
+
+export {
+  SCREEN,
+  VIEWPORTS,
+  BREAKPOINTS,
+  getMinWidthMediaQuery,
+  createBreakpointHelpers,
+  selectViewport,
+}
+
+export type { Breakpoint }

@@ -9,13 +9,13 @@ import {
   VIEWPORTS,
 } from './breakpoints'
 
-export interface ViewportContextValue extends BreakpointHelpers {
+interface ViewportContextValue extends BreakpointHelpers {
   viewport: string | null
 }
 
 const ViewportContext = createContext<ViewportContextValue | undefined>(undefined)
 
-export const useViewport = (): ViewportContextValue => {
+const useViewport = (): ViewportContextValue => {
   const context = useContext(ViewportContext)
 
   if (!context) {
@@ -25,7 +25,7 @@ export const useViewport = (): ViewportContextValue => {
   return context
 }
 
-export interface ViewportProviderProps {
+interface ViewportProviderProps {
   children: ReactNode
   /** Map of breakpoint name -> min-width in px. Defaults to MUI-style breakpoints. */
   breakpoints?: Breakpoint[]
@@ -33,7 +33,7 @@ export interface ViewportProviderProps {
   ssrViewport?: string | null
 }
 
-export const ViewportProvider = ({
+const ViewportProvider = ({
   children,
   breakpoints = SCREEN,
   ssrViewport = null,
@@ -69,3 +69,6 @@ export const ViewportProvider = ({
 
   return <ViewportContext.Provider value={value}>{children}</ViewportContext.Provider>
 }
+
+export { useViewport, ViewportProvider }
+export type { ViewportContextValue, ViewportProviderProps }
