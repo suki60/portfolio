@@ -1,15 +1,9 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 
-import {
-  createBreakpointHelpers,
-  SCREEN,
-  getMinWidthMediaQuery,
-  selectViewport, type BreakpointHelpers,
-  type Breakpoint,
-  VIEWPORTS,
-} from './breakpoints'
+import { SCREEN, type Breakpoint, VIEWPORTS } from './constants'
+import { createBreakpointHelpers, getMinWidthMediaQuery, selectViewport } from './helpers'
 
-interface ViewportContextValue extends BreakpointHelpers {
+type ViewportContextValue = {
   viewport: string | null
 }
 
@@ -33,11 +27,7 @@ interface ViewportProviderProps {
   ssrViewport?: string | null
 }
 
-const ViewportProvider = ({
-  children,
-  breakpoints = SCREEN,
-  ssrViewport = null,
-}: ViewportProviderProps) => {
+const ViewportProvider = ({ children, breakpoints = SCREEN, ssrViewport = null }: ViewportProviderProps) => {
   const [viewport, setViewport] = useState<string | null>(ssrViewport)
 
   useEffect(() => {
@@ -47,18 +37,17 @@ const ViewportProvider = ({
       console.log(v)
     }
 
-    // update in case server Viewport !== client viewport 
+    // update in case server Viewport !== client viewport
     update()
 
-    const mediaQueryLists = VIEWPORTS.map((key) =>
-      window.matchMedia(getMinWidthMediaQuery(breakpoints[key])),
-    )
+    const mediaQueryLists = VIEWPORTS.map(key => window.matchMedia(getMinWidthMediaQuery(breakpoints[key])))
 
-    mediaQueryLists.forEach((mql) => mql.addEventListener('change', update))
+    mediaQueryLists.forEach(mql => mql.addEventListener('change', update))
 
     return () => {
-      mediaQueryLists.forEach((mql) => mql.removeEventListener('change', update))
+      mediaQueryLists.forEach(mql => mql.removeEventListener('change', update))
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [JSON.stringify(breakpoints)])
 
