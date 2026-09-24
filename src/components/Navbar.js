@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-import { useViewport } from '@suki60/use-viewport'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import Burger from './Burger'
 import Menu from './Menu'
+import { useViewport } from '~/lib/use-viewport'
 
 export const RESUME_URL = '/cv'
 
@@ -17,10 +17,12 @@ export const PAGES = [
 ]
 
 const Navbar = () => {
-  const { up } = useViewport()
+  const { up, viewport } = useViewport()
   const [open, setOpen] = useState(false)
   const router = useRouter()
   const current = router.pathname
+
+  console.log(viewport)
 
   return (
     <header className='relative z-50 bg-white'>
