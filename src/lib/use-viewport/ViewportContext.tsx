@@ -2,12 +2,11 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from '
 
 import {
   createBreakpointHelpers,
-  defaultBreakpoints,
+  SCREEN,
   getMinWidthMediaQuery,
-  selectViewport,
-  sortedKeys,
-  type BreakpointHelpers,
-  type Breakpoints,
+  selectViewport, type BreakpointHelpers,
+  type Breakpoint,
+  VIEWPORTS,
 } from './breakpoints'
 
 export interface ViewportContextValue extends BreakpointHelpers {
@@ -29,25 +28,29 @@ export const useViewport = (): ViewportContextValue => {
 export interface ViewportProviderProps {
   children: ReactNode
   /** Map of breakpoint name -> min-width in px. Defaults to MUI-style breakpoints. */
-  breakpoints?: Breakpoints
+  breakpoints?: Breakpoint[]
   /** Breakpoint to use for the first server-rendered pass, before matchMedia can run client-side. */
   ssrViewport?: string | null
 }
 
 export const ViewportProvider = ({
   children,
-  breakpoints = defaultBreakpoints,
+  breakpoints = SCREEN,
   ssrViewport = null,
 }: ViewportProviderProps) => {
-  const keys = sortedKeys(breakpoints)
-
   const [viewport, setViewport] = useState<string | null>(ssrViewport)
 
   useEffect(() => {
-    const update = () => setViewport(selectViewport(breakpoints, keys))
+    const update = () => {
+      const v = selectViewport(breakpoints, VIEWPORTS)
+      setViewport(selectViewport(breakpoints, VIEWPORTS))
+      console.log(v)
+    }
+
+    // update in case server Viewport !== client viewport 
     update()
 
-    const mediaQueryLists = keys.map((key) =>
+    const mediaQueryLists = VIEWPORTS.map((key) =>
       window.matchMedia(getMinWidthMediaQuery(breakpoints[key])),
     )
 
@@ -61,7 +64,7 @@ export const ViewportProvider = ({
 
   const value: ViewportContextValue = {
     viewport,
-    ...createBreakpointHelpers(viewport, keys),
+    ...createBreakpointHelpers(viewport, VIEWPORTS),
   }
 
   return <ViewportContext.Provider value={value}>{children}</ViewportContext.Provider>
