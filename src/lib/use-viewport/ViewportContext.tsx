@@ -41,9 +41,7 @@ export const ViewportProvider = ({
 }: ViewportProviderProps) => {
   const keys = sortedKeys(breakpoints)
 
-  const [viewport, setViewport] = useState<string | null>(() =>
-    typeof window === 'undefined' ? ssrViewport : selectViewport(breakpoints, keys),
-  )
+  const [viewport, setViewport] = useState<string | null>(ssrViewport)
 
   useEffect(() => {
     const update = () => setViewport(selectViewport(breakpoints, keys))
