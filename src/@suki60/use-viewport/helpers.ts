@@ -1,41 +1,44 @@
 import { UAParser } from 'ua-parser-js'
 
-import { DEFAULT_SCREEN, getViewports, type Screen } from './constants'
+import { type Screen, type Viewport } from './constants'
 
-const DEFAULT_VIEWPORTS = getViewports(DEFAULT_SCREEN)
+type MinWidthMediaQuery = `(min-width: ${number}px)`
+type BreakpointHelpers = ReturnType<typeof createBreakpointHelpers>
 
-const getMinWidthMediaQuery = (width: number): string => `(min-width: ${width}px)`
+const typedKeys = <T extends object>(obj: T) => Object.keys(obj) as (keyof T)[]
 
-const createBreakpointHelpers = <V extends string>(selectedViewport: V, viewports: V[]) => {
-  const is = (breakpoint: V): boolean => selectedViewport === breakpoint
+const getMinWidthMediaQuery = (width: number): MinWidthMediaQuery => `(min-width: ${width}px)`
 
-  const up = (breakpoint: V): boolean => {
-    const breakpointIndex = viewports.indexOf(breakpoint)
-    const selectedIndex = viewports.indexOf(selectedViewport)
-    return breakpointIndex !== -1 && selectedIndex >= breakpointIndex
+const createBreakpointHelpers = (selectedViewport: Viewport, keys: string[]) => {
+  const is = (breakpoint: string): boolean => selectedViewport === breakpoint
+
+  const up = (breakpoint: string): boolean => {
+    const breakpointIndex = keys.indexOf(breakpoint)
+    return breakpointIndex !== -1 && keys.slice(breakpointIndex).includes(selectedViewport ?? '')
   }
 
-  const down = (breakpoint: V): boolean => {
-    const breakpointIndex = viewports.indexOf(breakpoint)
-    const selectedIndex = viewports.indexOf(selectedViewport)
-    return breakpointIndex !== -1 && selectedIndex !== -1 && selectedIndex <= breakpointIndex
+  const down = (breakpoint: string): boolean => {
+    const breakpointIndex = keys.indexOf(breakpoint)
+    return breakpointIndex !== -1 && keys.slice(0, breakpointIndex + 1).includes(selectedViewport ?? '')
   }
 
   return { is, up, down }
 }
 
-const getServerViewport = <V extends string>(userAgent: string, viewports: V[] = DEFAULT_VIEWPORTS as V[]): V => {
+const getServerViewport = (userAgent: string): Viewport => {
   const ua = UAParser(userAgent)
   const deviceType = ua.device.type
 
-  if (deviceType === 'mobile') return viewports[0]
-  if (deviceType === 'tablet') return viewports[1] ?? viewports[0]
-  return viewports[viewports.length - 1]
+  if (deviceType === 'mobile') return 'xs'
+  if (deviceType === 'tablet') return 'sm'
+  return 'lg'
 }
 
-const getClientViewport = <S extends Screen, V extends keyof S & string>(screen: S, viewports: V[]): V => {
-  const viewport = [...viewports].reverse().find(v => window.matchMedia(getMinWidthMediaQuery(screen[v])).matches)
-  return viewport ?? viewports[0]
+const getClientViewport = (screen: Screen): Viewport => {
+  const viewports = typedKeys(screen)
+  const viewport = viewports.reverse().find((v) => window.matchMedia(getMinWidthMediaQuery(screen[v])).matches)
+  return viewport ?? 'xs'
 }
 
-export { getMinWidthMediaQuery, createBreakpointHelpers, getServerViewport, getClientViewport }
+export { getMinWidthMediaQuery, createBreakpointHelpers, getServerViewport, getClientViewport, typedKeys }
+export type { BreakpointHelpers }

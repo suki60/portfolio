@@ -1,70 +1,63 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 
-import { DEFAULT_SCREEN, getViewports, type Screen } from './constants'
-import { createBreakpointHelpers, getClientViewport, getMinWidthMediaQuery } from './helpers'
+import { DEFAULT_SCREEN, type Screen, type Viewport } from './constants'
+import { createBreakpointHelpers, getClientViewport, getMinWidthMediaQuery, typedKeys, type BreakpointHelpers } from './helpers'
 
-type ViewportContextValue<V extends string> = {
-  viewport: V
-  is: (breakpoint: V) => boolean
-  up: (breakpoint: V) => boolean
-  down: (breakpoint: V) => boolean
+type ViewportContextValue = {
+  viewport: Viewport
+} & BreakpointHelpers
+
+const ViewportContext = createContext<ViewportContextValue | undefined>(undefined)
+
+const useViewport = (): ViewportContextValue => {
+  const context = useContext(ViewportContext)
+
+  if (!context) {
+    throw new Error('useViewport must be used within a ViewportProvider')
+  }
+
+  return context
 }
 
-interface ViewportProviderProps<V extends string> {
+type ViewportProviderProps = {
   children: ReactNode
-  ssrViewport: V
+  ssrViewport: Viewport
+  screen?: Screen
 }
 
-const createViewport = <S extends Screen>(screen: S) => {
-  type V = keyof S & string
+const ViewportProvider = ({ children, ssrViewport, screen = DEFAULT_SCREEN }: ViewportProviderProps) => {
+  const [viewport, setViewport] = useState(ssrViewport)
+  const viewports = typedKeys(screen)
 
-  const viewports = getViewports(screen)
-
-  const ViewportContext = createContext<ViewportContextValue<V> | undefined>(undefined)
-
-  const useViewport = (): ViewportContextValue<V> => {
-    const context = useContext(ViewportContext)
-
-    if (!context) {
-      throw new Error('useViewport must be used within a ViewportProvider')
+  useEffect(() => {
+    const update = () => {
+      const viewport = getClientViewport(screen)
+      setViewport(viewport)
     }
 
-    return context
-  }
+    // update viewport in case server viewport !== client viewport
+    update()
 
-  const ViewportProvider = ({ children, ssrViewport }: ViewportProviderProps<V>) => {
-    const [viewport, setViewport] = useState<V>(ssrViewport)
+    const mediaQueryLists = viewports.map(key => window.matchMedia(getMinWidthMediaQuery(screen[key])))
+    mediaQueryLists.forEach(mql => mql.addEventListener('change', update))
 
-    useEffect(() => {
-      const update = () => setViewport(getClientViewport(screen, viewports))
+    return () => {
+      mediaQueryLists.forEach(mql => mql.removeEventListener('change', update))
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-      // update viewport in case server viewport !== client viewport
-      update()
-
-      const mediaQueryLists = viewports.map(key => window.matchMedia(getMinWidthMediaQuery(screen[key])))
-      mediaQueryLists.forEach(mql => mql.addEventListener('change', update))
-
-      return () => {
-        mediaQueryLists.forEach(mql => mql.removeEventListener('change', update))
-      }
-    }, [])
-
-    return (
-      <ViewportContext.Provider
-        value={{
-          viewport,
-          ...createBreakpointHelpers(viewport, viewports),
-        }}
-      >
-        {children}
-      </ViewportContext.Provider>
-    )
-  }
-
-  return { ViewportProvider, useViewport }
+  return (
+    <ViewportContext.Provider
+      value={{
+        viewport,
+        ...createBreakpointHelpers(viewport, viewports),
+      }}
+    >
+      {children}
+    </ViewportContext.Provider>
+  )
 }
 
-const { ViewportProvider, useViewport } = createViewport(DEFAULT_SCREEN)
-
-export { createViewport, useViewport, ViewportProvider }
+export { useViewport, ViewportProvider }
 export type { ViewportContextValue, ViewportProviderProps }
