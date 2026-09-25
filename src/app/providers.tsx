@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react'
 
-import { ViewportProvider, getServerViewport } from '@suki60/use-viewport'
+import { ViewportProvider, getServerViewport } from '~/@suki60/use-viewport'
 
 type ProvidersProps = {
   userAgent: string

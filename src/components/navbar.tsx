@@ -2,10 +2,11 @@
 
 import React, { useState } from 'react'
 
-import { useViewport } from '@suki60/use-viewport'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+
+import { useViewport } from '~/@suki60/use-viewport'
 
 import Burger from './burger'
 import Menu from './menu'
