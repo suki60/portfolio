@@ -1,7 +1,6 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  transpilePackages: ['@suki60/use-viewport'],
   async rewrites() {
     return process.env.NODE_ENV === 'development'
       ? [
