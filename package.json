@@ -10,7 +10,7 @@
     "fix": "eslint --fix ."
   },
   "dependencies": {
-    "@suki60/use-viewport": "^1.1.0",
+    "@suki60/use-viewport": "file:../use-viewport",
     "eslint": "^9.0.0",
     "eslint-config-next": "16.3.6",
     "next": "16.3.6",
