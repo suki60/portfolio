@@ -1,9 +1,9 @@
 const DEFAULT_SCREEN = {
-  xs: 0,
-  sm: 600,
-  md: 900,
-  lg: 1200,
-  xl: 1536,
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  '2xl': 1536,
 }
 
 type Screen = typeof DEFAULT_SCREEN

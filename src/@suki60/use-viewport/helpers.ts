@@ -29,15 +29,15 @@ const getServerViewport = (userAgent: string): Viewport => {
   const ua = UAParser(userAgent)
   const deviceType = ua.device.type
 
-  if (deviceType === 'mobile') return 'xs'
-  if (deviceType === 'tablet') return 'sm'
+  if (deviceType === 'mobile') return 'sm'
+  if (deviceType === 'tablet') return 'md'
   return 'lg'
 }
 
 const getClientViewport = (screen: Screen): Viewport => {
   const viewports = typedKeys(screen)
   const viewport = viewports.reverse().find((v) => window.matchMedia(getMinWidthMediaQuery(screen[v])).matches)
-  return viewport ?? 'xs'
+  return viewport ?? 'sm'
 }
 
 export { getMinWidthMediaQuery, createBreakpointHelpers, getServerViewport, getClientViewport, typedKeys }
