@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 
+import { Analytics } from '@vercel/analytics/next'
 import { Metadata, Viewport } from 'next'
 import { headers } from 'next/headers'
 import Script from 'next/script'
@@ -46,6 +47,7 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
             })(window,document,'script','dataLayer','GTM-KSXH929M');
           `}
         </Script>
+        <Analytics />
       </body>
     </html>
   )
