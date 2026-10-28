@@ -17,6 +17,13 @@ const projects: ProjectData[] = [
     href: '/',
   },
   {
+    name: 'wedding',
+    description:
+      'my wedding website. lovely custom animations lead guests to an rsvp form. backed by neon, ci backups, google sheets sync and telegram notifications.',
+    stack: ['next.js', 'postgres', 'gsap'],
+    href: 'https://www.juliafrancesc.com/',
+  },
+  {
     name: 'use-viewport',
     description:
       'Type-safe React hook for responsive breakpoints — no innerWidth listeners or media query hacks. up/down/is helpers, SSR-safe.',
