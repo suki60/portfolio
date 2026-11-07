@@ -11,9 +11,9 @@ const pad = (i: number) => String(i + 1).padStart(2, '0')
 
 const projects: ProjectData[] = [
   {
-    name: 'portfolio',
-    description: 'personal portfolio',
-    stack: ['next.js', 'tailwind'],
+    name: 'fran-altes.com',
+    description: 'my personal website. simple, minimal, mine.',
+    stack: ['next.js', 'react', 'typescript', 'tailwind', 'vercel'],
     href: '/',
   },
   {
