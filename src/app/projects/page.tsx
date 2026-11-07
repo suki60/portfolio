@@ -25,9 +25,10 @@ const projects: ProjectData[] = [
   },
   {
     name: 'use-viewport',
+    install: 'npm i @suki60/use-viewport',
     description:
-      'Type-safe React hook for responsive breakpoints — no innerWidth listeners or media query hacks. up/down/is helpers, SSR-safe.',
-    stack: ['react', 'npm'],
+      'a lightweight react hook for breakpoints. no css show/hide hacks, no resize listeners: one layout, picked on the server.',
+    stack: ['react', 'typescript', 'ssr', 'next.js', 'npm'],
     href: 'https://www.npmjs.com/package/@suki60/use-viewport',
   },
 ]
