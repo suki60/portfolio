@@ -12,12 +12,9 @@ export type ProjectData = {
 
 type ProjectProps = {
   project: ProjectData
-  index: number
 }
 
-const pad = (i: number) => String(i + 1).padStart(2, '0')
-
-const Project = ({ project, index }: ProjectProps) => {
+const Project = ({ project }: ProjectProps) => {
   const external = /^https?:\/\//.test(project.href || '')
 
   return (
@@ -25,15 +22,11 @@ const Project = ({ project, index }: ProjectProps) => {
       href={project.href || '#'}
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
-      className='flex h-[220px] flex-col border-2 border-black bg-white p-[22px] shadow-[8px_8px_0_#0a0a0a] transition-all duration-150 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[12px_12px_0_#c3b5fd] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[4px_4px_0_#0a0a0a]'
+      className='flex flex-col border-2 border-black bg-white p-[22px] shadow-[8px_8px_0_#0a0a0a] transition-all duration-150 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[12px_12px_0_#c3b5fd] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[4px_4px_0_#0a0a0a]'
       style={{ fontFamily: 'var(--font-inter)' }}
     >
-      {/* title row */}
-      <div className='flex items-baseline justify-between'>
-        <div className='lowercase' style={{ fontWeight: 900, fontSize: 34, letterSpacing: '-0.03em' }}>
-          {project.name}
-        </div>
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, fontWeight: 700 }}>{pad(index)}</div>
+      <div className='lowercase' style={{ fontWeight: 900, fontSize: 34, letterSpacing: '-0.03em' }}>
+        {project.name}
       </div>
       {project.install && (
         <div className='mt-2' style={{ fontFamily: 'var(--font-mono)', fontSize: 13 }}>
@@ -41,7 +34,7 @@ const Project = ({ project, index }: ProjectProps) => {
         </div>
       )}
       <div
-        className='mt-2'
+        className='mt-2 mb-4'
         style={{
           fontWeight: 300,
           fontSize: 15,

@@ -54,12 +54,12 @@ const Projects = () => (
     </div>
 
     {/* grid */}
-    <div className='mt-11 grid grid-cols-1 gap-7 md:grid-cols-2'>
-      {projects.map((project, i) => (
-        <Project key={project.name} project={project} index={i} />
+    <div className='mt-11 grid auto-rows-fr grid-cols-1 gap-7 md:grid-cols-2'>
+      {projects.map(project => (
+        <Project key={project.name} project={project} />
       ))}
       <div
-        className='flex h-[220px] items-center justify-center border-2 border-dashed border-black'
+        className='flex items-center justify-center border-2 border-dashed border-black'
         style={{ fontFamily: 'var(--font-mono)', fontSize: 13 }}
       >
         [ more soon ]
