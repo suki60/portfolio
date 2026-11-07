@@ -17,10 +17,10 @@ const projects: ProjectData[] = [
     href: '/',
   },
   {
-    name: 'wedding',
+    name: 'juliafrancesc.com',
     description:
       'my wedding website. lovely custom animations lead guests to an rsvp form. backed by neon, ci backups, google sheets sync and telegram notifications.',
-    stack: ['next.js', 'postgres', 'gsap'],
+    stack: ['next.js', 'gsap', 'postgres', 'drizzle', 'playwright'],
     href: 'https://www.juliafrancesc.com/',
   },
   {
