@@ -5,7 +5,6 @@ import Link from 'next/link'
 export type ProjectData = {
   name: string
   description: string
-  install?: string
   stack: string[]
   href?: string
 }
@@ -28,11 +27,6 @@ const Project = ({ project }: ProjectProps) => {
       <div className='lowercase' style={{ fontWeight: 900, fontSize: 34, letterSpacing: '-0.03em' }}>
         {project.name}
       </div>
-      {project.install && (
-        <div className='mt-2' style={{ fontFamily: 'var(--font-mono)', fontSize: 13 }}>
-          $ {project.install}
-        </div>
-      )}
       <div
         className='mt-2 mb-4'
         style={{

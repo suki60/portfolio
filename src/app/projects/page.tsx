@@ -7,8 +7,6 @@ export const metadata: Metadata = {
   description: 'things i made',
 }
 
-const pad = (i: number) => String(i + 1).padStart(2, '0')
-
 const projects: ProjectData[] = [
   {
     name: 'fran-altes.com',
@@ -25,7 +23,6 @@ const projects: ProjectData[] = [
   },
   {
     name: 'use-viewport',
-    install: 'npm i @suki60/use-viewport',
     description:
       'a lightweight react hook for breakpoints. no css show/hide hacks, no resize listeners: one layout, picked on the server.',
     stack: ['react', 'typescript', 'ssr', 'next.js', 'npm'],
@@ -35,23 +32,16 @@ const projects: ProjectData[] = [
 
 const Projects = () => (
   <div className='container mx-auto mt-2 px-4 pb-20'>
-    {/* page head */}
-    <div className='flex flex-wrap items-end justify-between gap-5'>
-      <h1
-        className='m-0 lowercase'
-        style={{
-          fontFamily: 'var(--font-inter)',
-          fontWeight: 900,
-          fontSize: 'clamp(48px,11vw,92px)',
-        }}
-      >
-        projects
-      </h1>
-      <div className='pb-2 text-right' style={{ fontFamily: 'var(--font-mono)', fontSize: 12, lineHeight: 1.6 }}>
-        <div>[ {pad(projects.length - 1)} entries ]</div>
-        <div className='opacity-60'>things i made</div>
-      </div>
-    </div>
+    <h1
+      className='m-0 lowercase'
+      style={{
+        fontFamily: 'var(--font-inter)',
+        fontWeight: 900,
+        fontSize: 'clamp(48px,11vw,92px)',
+      }}
+    >
+      projects
+    </h1>
 
     {/* grid */}
     <div className='mt-11 grid auto-rows-fr grid-cols-1 gap-7 md:grid-cols-2'>
