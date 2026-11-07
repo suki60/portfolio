@@ -36,17 +36,21 @@ const Navbar = () => {
         </Link>
 
         {up('md') ? (
-          <div className='flex items-center gap-[18px]'>
+          <div className='flex items-center gap-7 text-lg' style={{ fontFamily: 'var(--font-mono)' }}>
             {PAGES.map(p =>
               current === p.href ? (
                 <span
                   key={p.href}
-                  className='-mx-2.5 border-2 border-black bg-black px-3 py-[3px] font-bold lowercase text-white'
+                  className="relative font-bold lowercase text-black before:absolute before:right-full before:content-['['] after:absolute after:left-full after:content-[']']"
                 >
                   {p.label}
                 </span>
               ) : (
-                <Link key={p.href} href={p.href} className='px-1 py-[3px] lowercase text-black underline-offset-4'>
+                <Link
+                  key={p.href}
+                  href={p.href}
+                  className='lowercase text-black decoration-2 underline-offset-4 hover:underline focus-visible:underline'
+                >
                   {p.label}
                 </Link>
               ),
