@@ -81,7 +81,7 @@ const Contact = () => (
     </div>
 
     {/* cards */}
-    <div className='mt-10 grid grid-cols-1 gap-6 text-left md:grid-cols-3'>
+    <div className='mt-10 grid grid-cols-1 gap-6 text-left lg:grid-cols-3'>
       <Card label='past'>{NARRATIVE.past}</Card>
       <Card label='present' accent>
         {NARRATIVE.present}
