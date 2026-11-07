@@ -6,6 +6,7 @@ import { headers } from 'next/headers'
 import Script from 'next/script'
 
 import Layout from '~/components/layout'
+import { THEME_KEY } from '~/components/theme-toggle'
 import { inter, mono } from '~/fonts'
 
 import Providers from './providers'
@@ -33,7 +34,15 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
   const userAgent = headerList.get('user-agent') || ''
 
   return (
-    <html lang='en'>
+    <html lang='en' data-theme='dark' suppressHydrationWarning>
+      <head>
+        {/* apply the saved theme before first paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('${THEME_KEY}');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body className={`${inter.variable} ${mono.variable}`}>
         <Providers userAgent={userAgent}>
           <Layout>{children}</Layout>

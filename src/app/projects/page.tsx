@@ -49,7 +49,7 @@ const Projects = () => (
         <Project key={project.name} project={project} />
       ))}
       <div
-        className='flex items-center justify-center border-2 border-dashed border-black'
+        className='flex items-center justify-center border-2 border-dashed border-edge text-muted'
         style={{ fontFamily: 'var(--font-mono)', fontSize: 13 }}
       >
         [ more soon ]

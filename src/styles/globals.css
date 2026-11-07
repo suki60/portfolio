@@ -1,5 +1,32 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-ink: #0a0a0a;
+  --color-line: #27272a;
+  --color-edge: #3f3f46;
+  --color-muted: #a1a1aa;
+  --color-fg: #e4e4e7;
+  --color-accent: #c4b5fd;
+}
+
+@custom-variant light (&:where([data-theme='light'], [data-theme='light'] *));
+
 :root {
   --navbar-height: 100px;
+  color-scheme: dark;
+}
+
+[data-theme='light'] {
+  --color-ink: #ffffff;
+  --color-line: #0a0a0a;
+  --color-edge: #0a0a0a;
+  --color-muted: #0a0a0a;
+  --color-fg: #0a0a0a;
+  --color-accent: #c3b5fd;
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-fg);
 }

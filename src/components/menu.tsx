@@ -10,19 +10,19 @@ type MenuProps = {
   current: string
 }
 
-// Brutalist slide-in panel: violet field, hard right border, big lowercase links
-// with mono index numbers, line-through on the current page, black résumé button.
+// Brutalist slide-in panel: hard right border, big lowercase links, line-through
+// on the current page. Dark: dark field, violet résumé. Light: violet field, black résumé.
 const Menu = ({ open, setOpen, current }: MenuProps) => {
   const close = () => setOpen(false)
 
   return (
     <nav
-      className={`fixed left-0 top-0 z-40 h-screen w-[74%] max-w-[320px] transform border-r-[3px] border-black bg-violet-300 px-6 pb-8 pt-[calc(var(--navbar-height)+8px)] transition-transform duration-300 ${
+      className={`fixed left-0 top-0 z-40 h-screen w-[74%] max-w-[320px] transform border-r-2 border-line bg-ink light:border-r-[3px] light:bg-accent px-6 pb-8 pt-[calc(var(--navbar-height)+8px)] transition-transform duration-300 ${
         open ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
       <div className='flex h-full flex-col'>
-        <span className='text-xs uppercase tracking-[0.14em]' style={{ fontFamily: 'var(--font-mono)' }}>
+        <span className='text-xs uppercase tracking-[0.14em] text-muted' style={{ fontFamily: 'var(--font-mono)' }}>
           menu
         </span>
 
@@ -58,7 +58,7 @@ const Menu = ({ open, setOpen, current }: MenuProps) => {
           target='_blank'
           rel='noreferrer'
           onClick={close}
-          className='mt-10 inline-block w-fit border-2 border-black bg-black px-[18px] py-2 font-bold text-violet-300'
+          className='mt-10 inline-block w-fit border-2 border-accent bg-accent px-[18px] py-2 font-bold text-ink light:border-fg light:bg-fg light:text-accent'
           style={{ fontFamily: 'var(--font-inter)', fontSize: 16 }}
         >
           résumé →

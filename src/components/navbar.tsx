@@ -3,12 +3,13 @@
 import React, { useState } from 'react'
 
 import { useViewport } from '@suki60/use-viewport'
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import Burger from './burger'
+import FaLogo from './fa-logo'
 import Menu from './menu'
+import ThemeToggle from './theme-toggle'
 
 export const RESUME_URL = '/cv'
 
@@ -29,10 +30,10 @@ const Navbar = () => {
   const current = usePathname()
 
   return (
-    <header className='relative z-50 bg-white'>
+    <header className='relative z-50 bg-ink'>
       <div className='mx-auto flex h-[var(--navbar-height)] max-w-[1536px] items-center justify-between px-6 sm:px-10'>
         <Link href='/' className='flex items-center'>
-          <Image alt='logo' src='/fa-logo.svg' height={48} width={48} />
+          <FaLogo />
         </Link>
 
         {up('md') ? (
@@ -41,7 +42,7 @@ const Navbar = () => {
               current === p.href ? (
                 <span
                   key={p.href}
-                  className="relative font-bold lowercase text-black before:absolute before:right-full before:content-['['] after:absolute after:left-full after:content-[']']"
+                  className="relative font-bold lowercase text-accent light:text-fg before:absolute before:right-full before:content-['['] after:absolute after:left-full after:content-[']']"
                 >
                   {p.label}
                 </span>
@@ -49,7 +50,7 @@ const Navbar = () => {
                 <Link
                   key={p.href}
                   href={p.href}
-                  className='lowercase text-black decoration-2 underline-offset-4 hover:underline focus-visible:underline'
+                  className='lowercase text-fg decoration-2 underline-offset-4 hover:underline focus-visible:underline'
                 >
                   {p.label}
                 </Link>
@@ -59,15 +60,19 @@ const Navbar = () => {
               href={RESUME_URL}
               target='_blank'
               rel='noreferrer'
-              className='ml-1.5 border-2 border-black bg-violet-300 px-4 py-[7px] font-bold lowercase text-black shadow-[4px_4px_0_#0a0a0a] transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_#0a0a0a] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none'
+              className='ml-1.5 border-2 border-accent px-4 py-[7px] font-bold lowercase text-accent transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_var(--color-accent)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none light:border-fg light:bg-accent light:text-fg light:shadow-[4px_4px_0_var(--color-fg)] light:hover:shadow-[6px_6px_0_var(--color-fg)] light:active:shadow-none'
             >
-              résumé
+              résumé ↗
             </a>
+            <ThemeToggle />
           </div>
         ) : (
           <>
             <Menu open={open} setOpen={setOpen} current={current} />
-            <Burger open={open} setOpen={setOpen} />
+            <div className='flex items-center gap-3'>
+              <ThemeToggle />
+              <Burger open={open} setOpen={setOpen} />
+            </div>
           </>
         )}
       </div>

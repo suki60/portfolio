@@ -17,7 +17,7 @@ const NARRATIVE = {
 
 const Label = ({ children }: { children: ReactNode }) => (
   <span
-    className='inline-block border-2 border-black bg-violet-300 px-[9px] py-0.5 uppercase'
+    className='inline-block border-2 border-accent px-[9px] py-0.5 uppercase text-accent light:border-fg light:bg-accent light:text-fg'
     style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: 12, letterSpacing: '0.14em' }}
   >
     {children}
@@ -32,8 +32,8 @@ type CardProps = {
 
 const Card = ({ label, children, accent }: CardProps) => (
   <div
-    className={`border-2 border-black bg-white p-5 ${
-      accent ? 'shadow-[8px_8px_0_#c3b5fd]' : 'shadow-[8px_8px_0_#0a0a0a]'
+    className={`border-2 border-line bg-ink p-5 ${
+      accent ? 'shadow-[8px_8px_0_var(--color-accent)]' : 'shadow-[8px_8px_0_var(--color-edge)]'
     }`}
   >
     <Label>{label}</Label>
@@ -55,7 +55,7 @@ const Contact = () => (
         src='/fa-square.jpg'
         width={128}
         height={128}
-        className='rounded-full border-[3px] border-black object-cover shadow-[6px_6px_0_#c3b5fd]'
+        className='rounded-full border-[3px] border-edge object-cover shadow-[6px_6px_0_var(--color-accent)]'
         style={{ filter: 'saturate(1.02) contrast(1.02)' }}
       />
       <div>
@@ -72,7 +72,7 @@ const Contact = () => (
           francesc altes
         </h1>
         <div
-          className='mt-3 uppercase'
+          className='mt-3 uppercase text-muted'
           style={{ fontFamily: 'var(--font-mono)', fontSize: 14, letterSpacing: '0.06em' }}
         >
           software engineer · barcelona
@@ -87,10 +87,11 @@ const Contact = () => (
         {NARRATIVE.present}
       </Card>
       <Card label='future'>
-        {NARRATIVE.future}{' '}
+        {NARRATIVE.future}
+        <br />
         <a
           href='mailto:fran.altes@gmail.com'
-          className='border-b-2 border-violet-300 text-black no-underline hover:bg-violet-300'
+          className='border-b-2 border-accent text-fg no-underline hover:bg-accent hover:text-ink light:hover:text-fg'
         >
           fran.altes@gmail.com
         </a>{' '}
@@ -99,7 +100,7 @@ const Contact = () => (
           href='https://linkedin.com/in/francesc-altes'
           target='_blank'
           rel='noreferrer'
-          className='border-b-2 border-violet-300 text-black no-underline hover:bg-violet-300'
+          className='border-b-2 border-accent text-fg no-underline hover:bg-accent hover:text-ink light:hover:text-fg'
         >
           linkedin
         </a>
@@ -107,7 +108,7 @@ const Contact = () => (
     </div>
 
     {/* quote */}
-    <div className='mt-10 flex flex-col gap-4 bg-black px-9 py-10 text-white'>
+    <div className='mt-10 flex flex-col gap-4 border-2 border-line bg-ink px-9 py-10 light:bg-fg light:text-ink'>
       <p
         className='m-0'
         style={{
@@ -120,7 +121,7 @@ const Contact = () => (
       >
         &ldquo;simplicity is the ultimate sophistication&rdquo;
       </p>
-      <span className='text-violet-300' style={{ fontFamily: 'var(--font-mono)', fontSize: 13 }}>
+      <span className='text-accent' style={{ fontFamily: 'var(--font-mono)', fontSize: 13 }}>
         — leonardo da vinci
       </span>
     </div>
