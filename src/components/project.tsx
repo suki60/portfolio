@@ -33,7 +33,7 @@ const Project = ({ project }: ProjectProps) => {
           fontWeight: 300,
           fontSize: 15,
           display: '-webkit-box',
-          WebkitLineClamp: 3,
+          WebkitLineClamp: 4,
           WebkitBoxOrient: 'vertical',
           overflow: 'hidden',
         }}
