@@ -9,10 +9,11 @@ export const metadata: Metadata = {
 
 const projects: ProjectData[] = [
   {
-    name: 'fran-altes.com',
-    description: 'my personal website. simple, minimal, mine.',
-    stack: ['next.js', 'react', 'typescript', 'tailwind', 'vercel'],
-    href: '/',
+    name: 'offwik.com',
+    description:
+      'ask wikipedia, offline. rag over simple english wikipedia that embeds, searches and answers in your browser with webgpu. nothing leaves your device.',
+    stack: ['rag', 'webgpu', 'web-llm', 'pgvector', 'cloudflare'],
+    href: 'https://offwik.com/',
   },
   {
     name: 'juliafrancesc.com',
@@ -27,6 +28,12 @@ const projects: ProjectData[] = [
       'a lightweight react hook for breakpoints. no css show/hide hacks, no resize listeners: one layout, picked on the server.',
     stack: ['react', 'typescript', 'ssr', 'next.js', 'npm'],
     href: 'https://www.npmjs.com/package/@suki60/use-viewport',
+  },
+  {
+    name: 'fran-altes.com',
+    description: 'my personal website. simple, minimal, mine.',
+    stack: ['next.js', 'react', 'typescript', 'tailwind', 'vercel'],
+    href: '/',
   },
 ]
 
