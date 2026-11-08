@@ -12,27 +12,27 @@ const projects: ProjectData[] = [
     name: 'offwik.com',
     description:
       'ask wikipedia, offline. rag over simple english wikipedia that embeds, searches and answers in your browser with webgpu. nothing leaves your device.',
-    stack: ['rag', 'webgpu', 'web-llm', 'pgvector', 'cloudflare'],
+    stack: ['rag', 'webgpu', 'web-llm', 'pgvector'],
     href: 'https://offwik.com/',
   },
   {
     name: 'juliafrancesc.com',
     description:
       'my wedding website. lovely custom animations lead guests to an rsvp form. backed by neon, ci backups, google sheets sync and telegram notifications.',
-    stack: ['next.js', 'gsap', 'postgres', 'drizzle', 'playwright'],
+    stack: ['next.js', 'gsap', 'postgres', 'drizzle'],
     href: 'https://www.juliafrancesc.com/',
   },
   {
     name: 'use-viewport',
     description:
       'a lightweight react hook for breakpoints. no css show/hide hacks, no resize listeners: one layout, picked on the server.',
-    stack: ['react', 'typescript', 'ssr', 'next.js', 'npm'],
+    stack: ['react', 'typescript', 'ssr', 'next.js'],
     href: 'https://www.npmjs.com/package/@suki60/use-viewport',
   },
   {
     name: 'fran-altes.com',
     description: 'my personal website. simple, minimal, mine.',
-    stack: ['next.js', 'react', 'typescript', 'tailwind', 'vercel'],
+    stack: ['next.js', 'react', 'tailwind', 'vercel'],
     href: '/',
   },
 ]
